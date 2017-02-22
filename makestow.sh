@@ -1,12 +1,8 @@
 #!/bin/bash
-############################
 
-########## Variables
-
-dir=~/dotfiles               # dotfiles directory
 configs="bash git nano vim"  # list of files/folders to symlink in homedir
 
-cd $dir
+cd ~/dotfiles 
 
 if type stow &> /dev/null; then
 	for name in $configs; do
@@ -14,5 +10,5 @@ if type stow &> /dev/null; then
 		stow $name
 	done
 else
-	echo "stow isn't installed in your system. Please install stow and try again. "
+	echo "Stow isn't installed in your system. Please install stow and try again. "
 fi
