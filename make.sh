@@ -3,16 +3,16 @@
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
-files="bashrc bash_logout bash_profile
-			 gitattributes gitconfig gitignore
-			 nanorc
-			 viminfo vimrc"    # list of files/folders to symlink in homedir
+dir=~/dotfiles               # dotfiles directory
+configs="bash git nano vim"  # list of files/folders to symlink in homedir
 
 cd $dir
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
-done
+if type stow &> /dev/null; then
+	for name in $configs; do
+		echo "Creating symlink to $name in your home (~) directory."
+		stow $name
+	done
+else
+	echo "stow isn't installed in your system. Please install stow and try again. "
+fi
