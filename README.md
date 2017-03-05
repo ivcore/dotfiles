@@ -14,15 +14,17 @@ Change the current directory to the repo:
 
     $ cd dotfiles
     
-Then you can run either `makestow.sh` (recommended method) if you have stow installed or `makescript.sh`.
+Then you can run either `install.sh` (recommended method) or if you have stow installed `installstow.sh`.
 
-    $ ./makestow.sh
+    $ ./install.sh
     
 Or
 
-    $ ./makescript.sh
-    
-Be careful, tho, because it might overwrite any previous files (haven't tested it yet).
+    $ ./installstow.sh
 
+Note that, when using `install.sh` all previous config files that aren't symlinks will be moved to `~/dotfiles/backup`
 ## to-do
-- [ ] Add config files for `vim`
+- [ ] Fix `install.sh` so it works for everything outside of `/dotfiles/config/`
+- [ ] Fix `git-prompt.sh`
+- [ ] Add syntax highlighting files for `nvim`
+
