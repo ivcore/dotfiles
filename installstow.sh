@@ -2,7 +2,7 @@
 
 cd ~/dotfiles
 
-configs="bash git nano vim"  # list of files/folders to symlink in homedir 
+configs="bash git nano vim XDG"  # list of files/folders to symlink in homedir 
 
 if type stow &> /dev/null; then
 	for name in $configs; do
