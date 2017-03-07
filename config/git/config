@@ -180,7 +180,7 @@ retag = "!f() { \
         editor = vim
         attributesfile = ~/.gitattributes
         excludesfile = ~/.gitignore
-        autocrlf = true
+        autocrlf = false
 
 [diff "bin"]
         # Use `hexdump` to diff binary files
