@@ -1,15 +1,13 @@
 #!/bin/bash
 set -e
 
-cd ~/dotfiles
-
 if [ ! -d ~/.config ]; then
 	echo "Creating ~/.config directory"
 	mkdir ~/.config
 fi
 
 echo "Creating symlinks of XDG compliant programs"
-cd config
+cd config/.config
 for dir in * ; do
 
 	if [ -L ~/.config/$dir ]; then
