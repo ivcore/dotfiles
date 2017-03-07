@@ -220,5 +220,5 @@ retag = "!f() { \
 
 # Use separate file for username / github token / etc
 [include]
-        path = ~/.config/git/gitconfig.local
+        path = ~/.config/git/user.local
 

@@ -5,16 +5,16 @@ If you're gonna copy this dotfiles repository I can't recommend enough you first
 
 *Actually nowdays just _some_ (old) programs put need their dotfiles in the `~` directory, this is due to the [XDG base directory specification](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). This specification says that the user configurations must be located inside the `$XDG_CONFIG_HOME`, which usually is just the `~/.config/` directory. This way ~~most~~ all the config files are organized under one directory.
 
+## Understanding GNU Stow
+As explained [here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/), when you run `stow dir`, stow takes the content inside the `dir` directory, and symlinks the content to the parent directory (one directory **above**) of the one where the `stow dir` command was run.
+
 ## Install instructions
-Download the repository:
+Download the repository and change the current directory to the repo:
 
     $ git clone https://github.com/ivcore/dotfiles.git
-    
-Change the current directory to the repo:
-
     $ cd dotfiles
     
-Then you can run either `stow.sh` (recommended method) if you have stow installed  or my custom script `install.sh`.
+Then you can run either `stow.sh` (recommended method) if you have stow installed  or my custom-and-sorta-unstable script `install.sh`.
 
     $ ./stow.sh
     
@@ -22,10 +22,7 @@ Or
 
     $ ./install.sh
 
-Note that, when using `install.sh` all previous config files that are symlinks will be removed and the ones that aren't will be moved to `~/dotfiles/backup`
-
-## Understanding GNU Stow
-As explained [here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/), when you run `stow dir`, stow takes the content inside the `dir` directory, and symlinks the content to the parent directory (one directory **above**) of the one where the `stow dir` command was run.
+Note that, when using `install.sh` all previous config symlinks will be removed and normal files will be moved to `~/dotfiles/backup`. Stow is much more safer, and limited, canceling the process if it finds a conflict.
 
 ## to-do
 - [ ] Fix `install.sh` so it works for everything outside of `/dotfiles/config/`
