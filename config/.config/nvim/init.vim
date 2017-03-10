@@ -27,17 +27,16 @@ Plug 'tpope/vim-git' " Git syntax
 call plug#end()
 
 " Moving around, searching and patterns
-set whichwrap = b,s,<,>,[,]
+set whichwrap=b,s,<,>,[,]
 set ignorecase
 set smartcase
 
 " Displaying text
 set breakindent
-set list
 set number
 
 " Syntax, highlighting and spelling
-set background = dark
+set background=dark
 set termguicolors
 syntax enable
 
@@ -48,10 +47,11 @@ set title
 set showcmd
 set ruler
 set helplang=en
+set visualbell
 
 " Tabs and indenting
-set tabstop = 2
-set shiftwidth = 2
+set tabstop=2
+set shiftwidth=2
 set smartindent
 
 " Other
@@ -82,4 +82,3 @@ nnoremap <leader>pc :PlugClean<CR>
 "  colorscheme iceberg
 "endif
 "}}}
-

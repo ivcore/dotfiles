@@ -17,11 +17,11 @@ check_dotconfig
 cd $BASEDIR
 if type stow &> /dev/null; then
 	for dir in $configs; do
-		stow -D $dir
-		stow $dir
+		stow -R $dir
 	done
 else
 	echo "Stow isn't installed in your system. Please install it and try again."
 	echo "Although not recommended, you can try to use install.sh"
 fi
 
+echo "Done!"

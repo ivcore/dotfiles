@@ -9,23 +9,13 @@ If you're gonna copy this dotfiles repository I can't recommend enough you first
 As explained [here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/), when you run `stow dir`, stow takes the content inside the `dir` directory, and symlinks the content to the parent directory (one directory **above**) of the one where the `stow dir` command was run.
 
 ## Install instructions
-Download the repository and change the current directory to the repo:
+Download the repository, change the current working directory to the repo, run the script:
 
     $ git clone https://github.com/ivcore/dotfiles.git
     $ cd dotfiles
-    
-Then you can run either `stow.sh` (recommended method) if you have stow installed  or my custom-and-sorta-unstable script `install.sh`.
-
     $ ./stow.sh
-    
-Or
-
-    $ ./install.sh
-
-Note that, when using `install.sh` all previous config symlinks will be removed and normal files will be moved to `~/dotfiles/backup`. Stow is much more safer, and limited, canceling the process if it finds a conflict.
 
 ## to-do
-- [ ] Fix `install.sh` so it works for everything outside of `/dotfiles/config/`
 - [ ] Fix `git-prompt.sh`
 - [ ] Add syntax highlighting files for `nvim`
 
