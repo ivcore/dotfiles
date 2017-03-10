@@ -12,7 +12,7 @@ As explained [here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/),
 Download the repository, change the current working directory to the repo, run the script:
 
     $ git clone https://github.com/ivcore/dotfiles.git
-    $ cd dotfiles
+    $ cd .dotfiles
     $ ./stow.sh
 
 ## to-do
