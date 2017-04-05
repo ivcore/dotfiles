@@ -11,7 +11,7 @@ As explained [here](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/),
 ## Install instructions
 Download the repository, change the current working directory to the repo, run the script:
 
-    $ git clone https://github.com/ivcore/dotfiles.git
+    $ git clone https://github.com/ivcore/.dotfiles.git
     $ cd .dotfiles
     $ ./stow.sh
 

@@ -2,7 +2,7 @@
 
 set -e
 
-configs="bash config nano"
+configs="bash config nano zsh"
 BASEDIR=$(dirname "$0")
 
 function check_dotconfig {	

@@ -40,3 +40,4 @@ Thumbs.db
 *.local
 backup/*
 config/.config/nvim/plugged/
+*directory
