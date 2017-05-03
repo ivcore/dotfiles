@@ -1,3 +1,7 @@
+#
+# ~/.zshrc
+#
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored _correct _approximate
@@ -13,12 +17,11 @@ SAVEHIST=500
 setopt appendhistory nomatch
 unsetopt autocd extendedglob notify
 # End of lines configured by zsh-newuser-install
-
 # Lines configured by zsh-newuser-install
+
 # End of lines added by compinstall
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -34,10 +37,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored comple
 zstyle ':completion:*' rehash true                              # automatically find new executables in path 
 
 export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/kate
+export VISUAL=/usr/bin/gedit
+
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-alias cp="cp -i"
 ## Keybindings section
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
@@ -48,8 +51,8 @@ bindkey '^[[C'  forward-char                                    # Right key
 bindkey '^[[D'  backward-char                                   # Left key
 bindkey '^[[5~' history-beginning-search-backward               # Page up key
 bindkey '^[[6~' history-beginning-search-forward                # Page down key
-bindkey '^[[A'  up-line-or-history                  # Up key
-bindkey '^[[B'  down-line-or-history                # Down key
+bindkey '^[[A'  up-line-or-history                  			# Up key
+bindkey '^[[B'  down-line-or-history                			# Down key
 # Navigate words with ctrl+arrow keys
 bindkey '^[Oc' forward-word                                     #
 bindkey '^[Od' backward-word                                    #

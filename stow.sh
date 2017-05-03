@@ -2,7 +2,7 @@
 
 set -e
 
-configs="bash config nano zsh"
+CONFIGS="bash config nano/.nanorc zsh"
 BASEDIR=$(dirname "$0")
 
 function check_dotconfig {	
@@ -15,13 +15,13 @@ function check_dotconfig {
 check_dotconfig
 
 cd $BASEDIR
-if type stow &> /dev/null; then
-	for dir in $configs; do
-		stow -R $dir
+if which stow &> /dev/null; then
+	for name in $CONFIGS; do
+		stow -R $name
 	done
 else
 	echo "Stow isn't installed in your system. Please install it and try again."
-	echo "Although not recommended, you can try to use install.sh"
 fi
 
 echo "Done!"
+

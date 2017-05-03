@@ -26,30 +26,34 @@ Plug 'tpope/vim-git' " Git syntax
 
 call plug#end()
 
-" Moving around, searching and patterns
+" :options
+
+" 2 Moving around, searching and patterns
 set whichwrap=b,s,<,>,[,]
+set incsearch
 set ignorecase
 set smartcase
 
-" Displaying text
+" 4 Displaying text
+set nowrap
 set breakindent
 set number
 
-" Syntax, highlighting and spelling
+" 5 Syntax, highlighting and spelling
 set background=dark
 set termguicolors
 syntax enable
 
-" Terminal
+" 8 Terminal
 set title
 
-" Messages and info
+" 11 Messages and info
 set showcmd
 set ruler
 set helplang=en
 set visualbell
 
-" Tabs and indenting
+" 14 Tabs and indenting
 set tabstop=2
 set shiftwidth=2
 set smartindent
@@ -60,6 +64,7 @@ filetype plugin indent on
 " -----------------------------------------------------
 " NERDTree
 " -----------------------------------------------------
+
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=50
 let g:NERDTreeAutoDeleteBuffer=1
@@ -70,6 +75,7 @@ let g:NERDTreeRespectWildIgnore=1
 " -----------------------------------------------------
 " Vim-Plug
 " -----------------------------------------------------
+
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pU :PlugUpgrade<CR>
