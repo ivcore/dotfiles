@@ -1,7 +1,7 @@
 # Dotfiles
 When you configure a program (for example, vim) the changes you do and the new configuration have got to be stored somewhere, right? Well, in UNIX and UNIX-like Operative Systems (like Linux and macOS) those configurations you make are stored in certain files that (usually) are located in your home (`~`) directory*, and all of them, be either a file or a directory, start with a dot (`.`) hence the name, dotfiles.
 
-If you're gonna copy this dotfiles repository I can't recommend enough you first take the time to check the configuration files you're interested in, and, preferably, just copy the information and add it to your own files rather than using the installation scripts, as they will most likely override any previous files you have.
+If you're gonna copy this dotfiles repository I can't recommend enough you first take the time to check the configuration files you're interested in, and, preferably, just copy what you want and add it to your own files rather than using the install script, as it will most likely override any previous files you have.
 
 *Actually nowdays just _some_ (old) programs put need their dotfiles in the `~` directory, this is due to the [XDG base directory specification](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). This specification says that the user configurations must be located inside the `$XDG_CONFIG_HOME`, which usually is just the `~/.config/` directory. This way ~~most~~ all the config files are organized under one directory.
 
@@ -16,6 +16,7 @@ Download the repository, change the current working directory to the repo, run t
     $ ./stow.sh
 
 ## to-do
-- [ ] Fix `git-prompt.sh`
+- [ ] Improve README.md
+* [ ] Add short descriptions of configs
 - [ ] Add syntax highlighting files for `nvim`
 
