@@ -1,27 +1,15 @@
 # A good list of alises http://haacked.com/archive/2014/07/28/github-flow-aliases/
 [alias]
-        # Staging
-        a = add
-        aa = add --all
-
         # Branch
-        br = branch
         branch-name = rev-parse --abbrev-ref HEAD
         branch-diff = diff master...HEAD
         branch-files = "!git diff master...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
 
         # Commit
-        c = commit
-        ca = commit -a
-        cm = commit -m
-        cal = !git add -A && git commit              # Commit all changes
-        cam = commit -am
-        cne = commit --no-edit
         amend = commit --amend
         amend-all = !git add --all && git commit --amend --reuse-message=HEAD
 
         # Clone
-        cl = clone
         sclone = clone --depth=1
 
         # Checkout
@@ -51,11 +39,9 @@
         poh = push origin head
 
         # Stash
-        st = stash
         stp = stash pop
 
         # Status/Logging
-        s = status
         ss = status -sb
         hist = log --graph --pretty=custom           # Show custom graph
         l = log --pretty=custom                      # Show custom log
@@ -66,9 +52,6 @@
         unstage = reset HEAD --                      # Mixed reset (affects HEAD and Index)
         undo = reset --soft HEAD~1                   # Undo last commit (affects HEAD only)
         reset = reset --hard HEAD~1                  # Remove last commit (from HEAD, Index and Working Dir)
-
-        # Remote
-        r = remote -v
 
         # Submodules
         subpl = submodule update --init --recursive
@@ -177,7 +160,6 @@ retag = "!f() { \
         untracked = red reverse
 
 [core]
-        editor = vim
         attributesfile = ~/.gitattributes
         excludesfile = ~/.gitignore
         autocrlf = false
@@ -221,4 +203,3 @@ retag = "!f() { \
 # Use separate file for username / github token / etc
 [include]
         path = ~/.config/git/user.local
-
