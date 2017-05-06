@@ -2,17 +2,13 @@
 
 set -e
 
-CONFIGS="bash config nano/.nanorc zsh"
+CONFIGS="bash config zsh"
 BASEDIR=$(dirname "$0")
 
-function check_dotconfig {	
-	if [ ! -d ~/.config ]; then
-		echo "Creating ~/.config directory"
-		mkdir ~/.config
-	fi
-}
-
-check_dotconfig
+if [ ! -d $HOME/.config ]; then
+	echo "Creating ~/.config directory"
+	mkdir $HOME/.config
+fi
 
 cd $BASEDIR
 if which stow &> /dev/null; then

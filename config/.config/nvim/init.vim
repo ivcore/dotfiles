@@ -24,6 +24,9 @@ Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xde
 Plug 'tpope/vim-markdown' " Markdown syntax
 Plug 'tpope/vim-git' " Git syntax
 
+" Coloschemes
+Plug 'tomasr/molokai' " Molokai colorscheme
+
 call plug#end()
 
 " :options
@@ -46,6 +49,11 @@ syntax enable
 
 " 8 Terminal
 set title
+
+" 9 Using the mouse
+if has('mouse')
+	set mouse=a
+endif
 
 " 11 Messages and info
 set showcmd
@@ -81,10 +89,20 @@ nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pU :PlugUpgrade<CR>
 nnoremap <leader>pc :PlugClean<CR>
 
-" Color scheme based on time {{{
-"if strftime("%H") < 19
-"  colorscheme badwolf
-"else
-"  colorscheme iceberg
-"endif
-"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors and syntax
+" in GUI or color console, enable coloring and search highlighting
+if &t_Co > 2 || has("gui_running")
+  syntax enable
+  set background=dark
+  set hlsearch
+endif
+
+set t_Co=256  " force 256 colors
+colorscheme molokai
+
+" molokai's diff coloring is terrible
+highlight DiffAdd    ctermbg=22
+highlight DiffDelete ctermbg=52
+highlight DiffChange ctermbg=17
+highlight DiffText ctermbg=53
