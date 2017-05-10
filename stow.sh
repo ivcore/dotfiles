@@ -9,15 +9,13 @@ if [ ! -d $HOME/.config ]; then
 	echo "Creating ~/.config directory"
 	mkdir $HOME/.config
 fi
-
 cd $BASEDIR
-if which stow &> /dev/null; then
+if type stow &> /dev/null; then
 	for name in $CONFIGS; do
 		stow -R $name
 	done
+	echo "Done!"
 else
 	echo "Stow isn't installed in your system. Please install it and try again."
 fi
-
-echo "Done!"
 

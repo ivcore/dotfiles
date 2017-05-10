@@ -1,9 +1,12 @@
 
-### Most of this config is taken from https://github.com/eevee/rc
+# -----------------------------------------------------
+# Most of the configs on this file are from https://github.com/eevee/rc
+# -----------------------------------------------------
 autoload colors; colors
 
-### Tab completion
-
+# -----------------------------------------------------
+# Tab completion
+# -----------------------------------------------------
 # Force a reload of completion system if nothing matched; this fixes installing
 # a program and then trying to tab-complete its name
 _force_rehash() {
@@ -42,14 +45,17 @@ setopt complete_in_word
 autoload -Uz compinit
 compinit
 
-### History
+# -----------------------------------------------------
+# History
+# -----------------------------------------------------
 setopt extended_history hist_no_store hist_ignore_dups hist_expire_dups_first hist_find_no_dups inc_append_history share_history hist_reduce_blanks hist_ignore_space
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
-
-### Some..  options
+# -----------------------------------------------------
+# Other options
+# -----------------------------------------------------
 setopt autocd beep extendedglob nomatch rc_quotes
 unsetopt notify
 
@@ -59,8 +65,9 @@ WORDCHARS=${WORDCHARS//[&.;\/]}
 # Words cannot express how fucking sweet this is
 REPORTTIME=5
 
-### ls
-
+# -----------------------------------------------------
+# Aliases
+# -----------------------------------------------------
 LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
 LLOPTS=''
 case $(uname -s) in
@@ -80,8 +87,9 @@ esac
 alias ls="ls $LSOPTS"
 alias ll="ls $LLOPTS | less -FX"
 
-### Keybindings
-
+# -----------------------------------------------------
+# Keybindings
+# -----------------------------------------------------
 bindkey -e
 
 # General movement
@@ -135,14 +143,16 @@ bindkey "\eOA" up-line-or-local-history
 bindkey "\e[B" down-line-or-local-history
 bindkey "\eOB" down-line-or-local-history
 
-### Set editors and fish-like syntax highlighting
-
+# -----------------------------------------------------
+# Set editors and fish-like syntax highlighting
+# -----------------------------------------------------
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/gedit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-### Color man pages
-
+# -----------------------------------------------------
+# Color man pages
+# -----------------------------------------------------
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -152,17 +162,14 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-### Prompt 
-
+# -----------------------------------------------------
+# Prompt 
+# -----------------------------------------------------
 # walters (modified)
 if [[ "$TERM" != "dumb" ]]; then
-    PROMPT='%n@%m %# '
+    PROMPT='%n@%m> '
     RPROMPT="%B%(?..[%?] )%b%F{${1:-green}}%~%f"
 else
     PROMPT="%(?..[%?] )%n@%m:%~> "
 fi
 
-### Machine-specific extras
-if [[ -r $HOME/.zlocal ]]; then
-    source $HOME/.zlocal
-fi

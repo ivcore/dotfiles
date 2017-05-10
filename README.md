@@ -1,3 +1,4 @@
+> _I dream of the day when all our configs will be under one directory_
 # Dotfiles
 When you configure a program (for example, vim) the changes you do and the new configuration have got to be stored somewhere, right? Well, in UNIX and UNIX-like Operative Systems (like Linux and macOS) those configurations you make are stored in certain files that (usually) are located in your home (`~`) directory*, and all of them, be either a file or a directory, start with a dot (`.`) hence the name, dotfiles.
 
@@ -17,6 +18,5 @@ Download the repository, change the current working directory to the repo, run t
 
 ## to-do
 - [ ] Improve README.md
-* [ ] Add short descriptions of configs
-- [ ] Add syntax highlighting files for `nvim`
+- [ ] Add short descriptions of configs
 

@@ -10,26 +10,26 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+	" NERDTree
+	Plug 'scrooloose/nerdtree' ", { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" NERDTree
-Plug 'scrooloose/nerdtree' ", { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
-Plug 'Xuyuanp/nerdtree-git-plugin'
+	" Syntax for various languages
+	Plug 'WolfgangMehner/lua-support' "Lua syntax
+	Plug 'tikhomirov/vim-glsl' " GLSL syntax
+	Plug 'othree/html5.vim' " HTML5 syntax
+	Plug 'cakebaker/scss-syntax.vim' " SCSS syntax
+	Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] } " Color highlighter
+	Plug 'tpope/vim-markdown' " Markdown syntax
+	Plug 'tpope/vim-git' " Git syntax
 
-" Syntax for various languages
-Plug 'WolfgangMehner/lua-support' "Lua syntax
-Plug 'tikhomirov/vim-glsl' " GLSL syntax
-Plug 'othree/html5.vim' " HTML5 syntax
-Plug 'cakebaker/scss-syntax.vim' " SCSS syntax
-Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] } " Color highlighter
-Plug 'tpope/vim-markdown' " Markdown syntax
-Plug 'tpope/vim-git' " Git syntax
-
-" Coloschemes
-Plug 'tomasr/molokai' " Molokai colorscheme
-
+	" Coloschemes
+	Plug 'tomasr/molokai' " Molokai colorscheme
 call plug#end()
 
+" -----------------------------------------------------
 " :options
+" -----------------------------------------------------
 
 " 2 Moving around, searching and patterns
 set whichwrap=b,s,<,>,[,]
@@ -43,9 +43,7 @@ set breakindent
 set number
 
 " 5 Syntax, highlighting and spelling
-set background=dark
 set termguicolors
-syntax enable
 
 " 8 Terminal
 set title
@@ -89,8 +87,9 @@ nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pU :PlugUpgrade<CR>
 nnoremap <leader>pc :PlugClean<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -----------------------------------------------------
 " Colors and syntax
+" -----------------------------------------------------
 " in GUI or color console, enable coloring and search highlighting
 if &t_Co > 2 || has("gui_running")
   syntax enable
