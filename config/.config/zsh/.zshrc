@@ -56,8 +56,8 @@ export SAVEHIST=1000000
 # -----------------------------------------------------
 # Other options
 # -----------------------------------------------------
-setopt autocd beep extendedglob nomatch rc_quotes
-unsetopt notify
+setopt autocd extendedglob nomatch rc_quotes
+unsetopt notify beep
 
 # Don't count common path separators as word characters
 WORDCHARS=${WORDCHARS//[&.;\/]}
@@ -94,12 +94,17 @@ bindkey -e
 
 # General movement
 # Taken from http://wiki.archlinux.org/index.php/Zsh and Ubuntu's inputrc
+# You can use '$ cat -v' to find out how are the keys managed
+# And use '$ bindkey -M emacs' to list the bindings in the emacs keymap
+# More info on http://zsh.sourceforge.net/Guide/zshguide04.html or '$ man zshzle'
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
 bindkey "\e[6~" end-of-history
 bindkey "\e[3~" delete-char
 bindkey "\e[2~" quoted-insert
+
+# ctrl + arrows
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 bindkey "\e[5C" forward-word
@@ -108,13 +113,15 @@ bindkey "\e[5D" backward-word
 bindkey "\eOd" emacs-backward-word
 bindkey "\e\e[C" forward-word
 bindkey "\e\e[D" backward-word
+
 # for rxvt
 bindkey "\e[8~" end-of-line
 bindkey "\e[7~" beginning-of-line
+
 # for non RH/Debian xterm, can't hurt for RH/Debian xterm
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
-# for freebsd console
+#for freebsd console
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
@@ -131,6 +138,7 @@ down-line-or-local-history() {
     zle set-local-history 0
 }
 zle -N down-line-or-local-history
+
 up-line-or-local-history() {
     zle set-local-history 1
     zle up-line-or-history
@@ -146,8 +154,8 @@ bindkey "\eOB" down-line-or-local-history
 # -----------------------------------------------------
 # Set editors and fish-like syntax highlighting
 # -----------------------------------------------------
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/gedit
+export EDITOR=nvim
+export VISUAL=gedit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # -----------------------------------------------------
