@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term urxvt
+set $term sakura
 
 # Application launcher
 set $menu dmenu_run

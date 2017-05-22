@@ -106,3 +106,8 @@ elseif g:colors_name == 'yowish'
 	let g:yowish.signjk = 0
 endif
 
+" -----------------------------------------------------
+" More natural split opening
+" -----------------------------------------------------
+set splitbelow
+set splitright
