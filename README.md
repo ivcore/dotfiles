@@ -10,7 +10,7 @@ those changes to the default behaviour of a program are saved in files that are 
 You don't want those files and directories to be visible by default:
 someone may misconfigure them or delete them mistakenly, or maybe they just cause some visual noise.
 In order to hide them from the common sight, we put a dot (`.`) at the start of their names.
-This indicates the OS that these files are hidden by default,
+This indicates the OS that these files are hidden by default.
 The [origin](https://plus.google.com/+RobPikeTheHuman/posts/R58WgWwN9jp) of this behavior is really interesting.
 That's where the name _dotfiles_ comes from.
 
@@ -25,10 +25,10 @@ I can't recommend enough you first take the time to check the configuration file
 and preferably just copy what you want and add it to your own files rather than using the install script,
 as it will most likely override any previous files you have.
 
-##GNU Stow
+## GNU Stow
 
 ### Understanding GNU Stow
-Imagine you have the the directory:
+Imagine you have the directory:
 
 `/trunk/branch/subbranch/leaf`
 
