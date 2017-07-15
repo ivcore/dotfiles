@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 
 	" Syntax for various languages
-	Plug 'WolfgangMehner/lua-support' "Lua syntax
+	" Plug 'WolfgangMehner/lua-support' "Lua syntax
 	Plug 'tikhomirov/vim-glsl' " GLSL syntax
 	Plug 'othree/html5.vim' " HTML5 syntax
 	Plug 'cakebaker/scss-syntax.vim' " SCSS syntax
@@ -64,14 +64,14 @@ set tabstop=2
 set shiftwidth=2
 set smartindent
 
-" Other
+" Other (allows different indentation per file type)
 filetype plugin indent on
 
 " -----------------------------------------------------
 " NERDTree
 " -----------------------------------------------------
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=25
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
@@ -80,7 +80,7 @@ let g:NERDTreeRespectWildIgnore=1
 " -----------------------------------------------------
 " Colors and syntax
 " -----------------------------------------------------
-" in GUI or color console, enable coloring and search highlighting
+" in color console, enable coloring and search highlighting
 if &t_Co > 2 || has("gui_running")
 	syntax enable
 	set background=dark
@@ -98,12 +98,6 @@ if g:colors_name == 'molokai'
 	highlight DiffText ctermbg=53
 elseif g:colors_name == 'gruvbox'
 	let g:gruvbox_contrast_dark = 'hard'
-elseif g:colors_name == 'yowish'
-	let g:yowish={}
-	let g:yowish.ctrlp = 0
-	let g:yowish.unite = 0
-	let g:yowish.agit = 0
-	let g:yowish.signjk = 0
 endif
 
 " -----------------------------------------------------
@@ -111,3 +105,4 @@ endif
 " -----------------------------------------------------
 set splitbelow
 set splitright
+

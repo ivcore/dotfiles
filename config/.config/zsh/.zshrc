@@ -68,24 +68,24 @@ REPORTTIME=5
 # -----------------------------------------------------
 # Aliases
 # -----------------------------------------------------
-LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
-LLOPTS=''
-case $(uname -s) in
-    FreeBSD)
-        LSOPTS="${LSOPTS} -G"
-        ;;
-    Linux)
-        eval "$(dircolors -b)"
-        LSOPTS="$LSOPTS --color=auto"
-        LLOPTS="$LLOPTS --color=always"  # so | less is colored
-
-        # Just loaded new ls colors via dircolors, so change completion colors
-        # to match
-        zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-        ;;
-esac
-alias ls="ls $LSOPTS"
-alias ll="ls $LLOPTS | less -FX"
+#LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
+#LLOPTS=''
+#case $(uname -s) in
+#    FreeBSD)
+#        LSOPTS="${LSOPTS} -G"
+#        ;;
+#    Linux)
+#        eval "$(dircolors -b)"
+#        LSOPTS="$LSOPTS --color=auto"
+#        LLOPTS="$LLOPTS --color=always"  # so | less is colored
+#
+#        # Just loaded new ls colors via dircolors, so change completion colors
+#        # to match
+#        zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+#        ;;
+#esac
+#alias ls="ls $LSOPTS"
+#alias ll="ls $LLOPTS | less -FX"
 
 # -----------------------------------------------------
 # Functions
@@ -108,6 +108,7 @@ extract() {
       *.pax)      cat "$1" | pax -r                     ;;
       *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
       *.Z)        uncompress "$1"                       ;;
+			*.xz)				xz --keep -d "$1"											;;
       *) echo "'$1' cannot be extracted/mounted via extract()" ;;
     esac
   else
