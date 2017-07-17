@@ -11,7 +11,7 @@ if [[ ! -d "${HOME}/.config" ]]; then
   mkdir "${HOME}/.config"
 fi
 cd ${BASEDIR}
-if [[ type stow &> /dev/null ]]; then
+if type stow &> /dev/null; then
   for name in "${CONFIGS}"; do
     stow -R "${name}"
   done
