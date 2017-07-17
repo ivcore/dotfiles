@@ -36,10 +36,12 @@
 ehthumbs.db
 Thumbs.db
 *~
-
 *.local
+
+# .dotfiles #
+#############
 backup/*
-config.config/nvim/autoload/
+config/.config/nvim/autoload/
 config/.config/nvim/plugged/
 config/.config/zsh/.zcompdump
 *directory
