@@ -16,13 +16,12 @@ call plug#begin('~/.config/nvim/plugged')
   " Syntax for various languages
   Plug 'tikhomirov/vim-glsl' " GLSL syntax
   Plug 'othree/html5.vim' " HTML5 syntax
-  Plug 'cakebaker/scss-syntax.vim' " SCSS syntax
   Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] } " Color highlighter
   Plug 'tpope/vim-markdown' " Markdown syntax
   Plug 'tpope/vim-git' " Git syntax
 
   " Coloschemes
-  Plug 'tomasr/molokai' " Molokai colorscheme
+  Plug 'tomasr/molokai'
 call plug#end()
 
 " -----------------------------------------------------
@@ -38,9 +37,16 @@ set smartcase
 set nowrap
 set breakindent
 set number
+" set relativenumber
 
 " 5 Syntax, highlighting and spelling
 set termguicolors
+" set cursorline
+" set colorcolumn=+1
+
+" 6 Multiple windows
+set splitbelow
+set splitright
 
 " 8 Terminal
 set title
@@ -56,13 +62,20 @@ set ruler
 set helplang=en
 set visualbell
 
+" 13 Editing text
+set undofile
+
 " 14 Tabs and indenting
-set tabstop=2
-set shiftwidth=2
+set shiftwidth=4
+set softtabstop=4
+set shiftround
 set smartindent
 
-" Other (allows different indentation per file type)
+" Others
+" Allow different indentations per filetype.
 filetype plugin indent on
+" For all text files set 'textwidth' to 80 characters.
+autocmd FileType text setlocal textwidth=80
 
 " -----------------------------------------------------
 " NERDTree
@@ -77,14 +90,15 @@ let g:NERDTreeRespectWildIgnore=1
 " -----------------------------------------------------
 " Colors and syntax
 " -----------------------------------------------------
-" in color console, enable coloring and search highlighting
+" In color console, enable coloring and search highlighting.
 if &t_Co > 2 || has("gui_running")
   syntax enable
   set background=dark
   set hlsearch
 endif
 
-set t_Co=256  " force 256 colors
+" Force 256 colors.
+set t_Co=256
 silent! colorscheme molokai
 
 if g:colors_name
@@ -94,9 +108,3 @@ if g:colors_name
   highlight DiffChange ctermbg=17
   highlight DiffText ctermbg=53
 endif
-
-" -----------------------------------------------------
-" More natural split opening
-" -----------------------------------------------------
-set splitbelow
-set splitright

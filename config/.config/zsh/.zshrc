@@ -1,4 +1,3 @@
-
 # -----------------------------------------------------
 # Most of the configs on this file are from https://github.com/eevee/rc
 # -----------------------------------------------------
@@ -108,7 +107,7 @@ extract() {
       *.pax)      cat "$1" | pax -r                     ;;
       *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
       *.Z)        uncompress "$1"                       ;;
-			*.xz)				xz --keep -d "$1"											;;
+      *.xz)       xz --keep -d "$1"                     ;;
       *) echo "'$1' cannot be extracted/mounted via extract()" ;;
     esac
   else
@@ -209,4 +208,3 @@ if [[ "$TERM" != "dumb" ]]; then
 else
     PROMPT="%(?..[%?] )%n@%m:%~> "
 fi
-
