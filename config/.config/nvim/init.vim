@@ -9,19 +9,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-  " NERDTree
-  Plug 'scrooloose/nerdtree' ", { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+
+  Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'Xuyuanp/nerdtree-git-plugin'
-
   " Syntax for various languages
-  Plug 'tikhomirov/vim-glsl' " GLSL syntax
-  Plug 'othree/html5.vim' " HTML5 syntax
-  Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] } " Color highlighter
-  Plug 'tpope/vim-markdown' " Markdown syntax
-  Plug 'tpope/vim-git' " Git syntax
-
+  Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
+  Plug 'othree/html5.vim'
+  Plug 'lilydjwg/colorizer'
+  Plug 'tpope/vim-markdown'
+  Plug 'tpope/vim-git'
   " Coloschemes
-  Plug 'tomasr/molokai'
+  Plug 'ivcore/pseudokai'
+
 call plug#end()
 
 " -----------------------------------------------------
@@ -66,8 +65,8 @@ set visualbell
 set undofile
 
 " 14 Tabs and indenting
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set shiftround
 set smartindent
 
@@ -80,12 +79,12 @@ autocmd FileType text setlocal textwidth=80
 " -----------------------------------------------------
 " NERDTree
 " -----------------------------------------------------
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeWinSize=25
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeRespectWildIgnore=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeWinSize=25
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeAutoDeleteBuffer=1
 
 " -----------------------------------------------------
 " Colors and syntax
@@ -99,12 +98,12 @@ endif
 
 " Force 256 colors.
 set t_Co=256
-silent! colorscheme molokai
+silent! colorscheme pseudokai
 
-if g:colors_name
-  " Molokai's diff coloring is terrible
-  highlight DiffAdd    ctermbg=22
-  highlight DiffDelete ctermbg=52
-  highlight DiffChange ctermbg=17
-  highlight DiffText ctermbg=53
-endif
+"if g:colors_name
+"  " Molokai's diff coloring is terrible.
+"  highlight DiffAdd    ctermbg=22
+"  highlight DiffDelete ctermbg=52
+"  highlight DiffChange ctermbg=17
+"  highlight DiffText ctermbg=53
+"endif
