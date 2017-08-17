@@ -3,19 +3,21 @@
 # Create simlinks to configuration files using GNU Stow (if available).
 set -e
 
-CONFIGS="bash config tmux zsh"
+CONFIGS="bash config nano tmux zsh"
 BASEDIR="$(dirname "$0")"
 
-if [[ ! -d "${HOME}/.config" ]]; then
+if [[ ! -d "${HOME}"/.config ]]; then
   echo "Create .config/ directory."
-  mkdir "${HOME}/.config"
+  mkdir "${HOME}"/.config
 fi
-cd ${BASEDIR}
+
 if type stow &> /dev/null; then
-  for name in "${CONFIGS}"; do
-    stow -R "${name}"
+  for name in ${CONFIGS}; do
+    stow -d "${BASEDIR}" -t "${HOME}" -R -v --adopt "${name}"
   done
   echo "Done!"
+	exit 0
 else
   echo "Stow isn't installed in your system. Please install it and try again."
+	exit 1
 fi
