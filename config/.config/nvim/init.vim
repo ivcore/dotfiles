@@ -20,6 +20,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-git'
   " Coloschemes
   Plug 'ivcore/pseudokai'
+  Plug 'tomasr/molokai'
+  Plug 'sheerun/vim-wombat-scheme'
+  Plug 'vim-scripts/wombat'
 
 call plug#end()
 

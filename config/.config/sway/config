@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term sakura
+set $term termite
 
 # Application launcher
 set $menu dmenu_run
@@ -34,7 +34,7 @@ default_border pixel 3
 # Output configuration
 # -----------------------------------------------------
 # Wallpaper
-output * bg /home/iv/Pictures/Wallpapers/RyanSchroeder.jpg fill
+output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
 
 # Example configuration:
 #
