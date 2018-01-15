@@ -15,13 +15,20 @@ call plug#begin('~/.config/nvim/plugged')
   " Syntax for various languages
   Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
   Plug 'othree/html5.vim'
+
+  " TODO: check which one is better.
   Plug 'lilydjwg/colorizer'
+  " Plug 'ap/vim-css-color'
+  
   Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-git'
+  " Plug 'sheerun/vim-polyglot'
+
+  " For my inner writer...
+  Plug 'junegunn/goyo.vim'
+
   " Coloschemes
   Plug 'ivcore/pseudokai'
-  Plug 'tomasr/molokai'
-  Plug 'sheerun/vim-wombat-scheme'
   Plug 'vim-scripts/wombat'
 
 call plug#end()
@@ -77,7 +84,27 @@ set smartindent
 " Allow different indentations per filetype.
 filetype plugin indent on
 " For all text files set 'textwidth' to 80 characters.
-autocmd FileType text setlocal textwidth=80
+" autocmd FileType text setlocal textwidth=80
+
+" -----------------------------------------------------
+" Goyo.vim
+" -----------------------------------------------------
+function! s:goyo_enter()
+  setlocal textwidth=80
+  if exists('$TMUX')
+    silent !tmux set status off
+  endif
+endfunction
+
+function! s:goyo_leave()
+  set textwidth=0
+  if exists('$TMUX')
+    silent !tmux set status on
+  endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " -----------------------------------------------------
 " NERDTree
@@ -102,11 +129,3 @@ endif
 " Force 256 colors.
 set t_Co=256
 silent! colorscheme pseudokai
-
-"if g:colors_name
-"  " Molokai's diff coloring is terrible.
-"  highlight DiffAdd    ctermbg=22
-"  highlight DiffDelete ctermbg=52
-"  highlight DiffChange ctermbg=17
-"  highlight DiffText ctermbg=53
-"endif
