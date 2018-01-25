@@ -67,24 +67,6 @@ REPORTTIME=5
 # -----------------------------------------------------
 # Aliases
 # -----------------------------------------------------
-#LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
-#LLOPTS=''
-#case $(uname -s) in
-#    FreeBSD)
-#        LSOPTS="${LSOPTS} -G"
-#        ;;
-#    Linux)
-#        eval "$(dircolors -b)"
-#        LSOPTS="$LSOPTS --color=auto"
-#        LLOPTS="$LLOPTS --color=always"  # so | less is colored
-#
-#        # Just loaded new ls colors via dircolors, so change completion colors
-#        # to match
-#        zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#        ;;
-#esac
-#alias ls="ls $LSOPTS"
-#alias ll="ls $LLOPTS | less -FX"
 
 # -----------------------------------------------------
 # Functions
@@ -183,7 +165,6 @@ bindkey "\eOB" down-line-or-local-history
 # Set editors and fish-like syntax highlighting
 # -----------------------------------------------------
 export EDITOR=nvim
-export VISUAL=gedit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # -----------------------------------------------------
@@ -197,6 +178,11 @@ export LESS_TERMCAP_so=$'\E[01;47;34m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
+
+# -----------------------------------------------------
+# Ruby 
+# -----------------------------------------------------
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # -----------------------------------------------------
 # Prompt 
