@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'Xuyuanp/nerdtree-git-plugin'
+
   " Syntax for various languages
   Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
   Plug 'othree/html5.vim'
@@ -19,12 +20,12 @@ call plug#begin('~/.config/nvim/plugged')
   " TODO: check which one is better.
   Plug 'lilydjwg/colorizer'
   " Plug 'ap/vim-css-color'
-  
+
   Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-git'
   " Plug 'sheerun/vim-polyglot'
 
-  " For my inner writer...
+  " For the inner writer...
   Plug 'junegunn/goyo.vim'
 
   " Coloschemes
@@ -83,6 +84,10 @@ set smartindent
 " Others
 " Allow different indentations per filetype.
 filetype plugin indent on
+
+" On save, remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " For all text files set 'textwidth' to 80 characters.
 " autocmd FileType text setlocal textwidth=80
 
