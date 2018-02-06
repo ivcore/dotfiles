@@ -1,14 +1,15 @@
 > _I dream of the day when all our configs will be under one directory_
 
-# Dotfiles Say for a second you want to configure or customize a program (e.g.
-You want to change the default background color of your terminal emulator).  It
-is certainly possible, right? But where is the configuration file saved?  In
-UNIX and UNIX-like Operative Systems (GNU/Linux, BSD, macOS) those changes to
-the default behaviour of a program are saved in files that are (usually) located
-in your home (`$HOME` or `~`) directory.
+# Dotfiles
+Say for a second you want to configure or customize a program (e.g.You want to
+change the default background color of your terminal emulator).  It is
+certainly possible, right? But where is the configuration file saved?  In UNIX
+and UNIX-like Operative Systems (GNU/Linux, BSD, macOS) those changes to the
+default behaviour of a program are saved in files that are (usually) located in
+your home (`$HOME` or `~`) directory.
 
-You don't want those files and directories to be visible by default: someone may
-misconfigure them or delete them mistakenly, or maybe they just cause some
+You don't want those files and directories to be visible by default: someone
+may misconfigure them or delete them mistakenly, or maybe they just cause some
 visual noise.  In order to hide them from the common sight, we put a dot (`.`)
 at the start of their names.  This indicates the OS that these files are hidden
 by default.  The
@@ -25,8 +26,8 @@ This specification says that the user configurations must be located inside the
 If you're gonna copy this dotfiles repository, I can't recommend enough you
 first take the time to check the configuration files you're interested in, and
 preferably just copy what you want and add it to your own files rather than
-using the install script, as it will most likely override any previous files you
-have.
+using the install script, as it will most likely override any previous files
+you have.
 
 ## GNU Stow
 
@@ -43,7 +44,7 @@ you are in the `/branch` directory and run
 
 Stow takes the content inside the `/subbranch` directory (i.e. `leaf`), and
 symlinks it to the parent directory of the one where command was run (i.e.
-`/trunk`). 
+`/trunk`).
 
 Now your `/trunk` directory has a symbolic link (similar to a direct access) to
 the `leaf` file.
