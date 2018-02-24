@@ -12,24 +12,23 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'jiangmiao/auto-pairs'
 
   " Syntax for various languages
   Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
   Plug 'othree/html5.vim'
-
-  " TODO: check which one is better.
-  Plug 'lilydjwg/colorizer'
-  " Plug 'ap/vim-css-color'
-
   Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-git'
-  " Plug 'sheerun/vim-polyglot'
+
+  " TODO: check which one is better.
+  " Plug 'lilydjwg/colorizer'
+  Plug 'ap/vim-css-color'
 
   " For the inner writer...
   Plug 'junegunn/goyo.vim'
 
   " Coloschemes
-  Plug 'ivcore/pseudokai'
+  Plug 'dreamtigers/pseudokai'
   Plug 'vim-scripts/wombat'
 
 call plug#end()
@@ -79,7 +78,8 @@ set undofile
 set shiftwidth=2
 set softtabstop=2
 set shiftround
-set smartindent
+" Filetype indent should be the one handling indentation.
+" set smartindent
 
 " Others
 " Allow different indentations per filetype.
