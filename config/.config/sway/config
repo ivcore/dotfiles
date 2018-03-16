@@ -1,9 +1,9 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 # Read `man 5 sway` for a complete reference.
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Variables
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Logo key. Use Mod1 for Alt. Mod4 for Super.
 set $mod Mod4
 
@@ -14,25 +14,17 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term termite
+set $term termite -e tmux
 
 # Application launcher
 set $menu dmenu_run
 
 # Font
-font DejaVu Sans Mono 9
+font Hack 9
 
-# -----------------------------------------------------
-# Gaps and borders
-# -----------------------------------------------------
-gaps inner 5
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 3
-
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Output configuration
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Wallpaper
 output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
 
@@ -42,25 +34,22 @@ output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Input configuration
-# -----------------------------------------------------
-# Example configuration:
-
-		input "2:14:SynPS/2_Synaptics_TouchPad" {
-			dwt enabled
-			tap enabled
-			natural_scroll enabled
-			middle_emulation enabled
-		}
+# ---------------------------------------------------------------------
+input "1267:5:Elan_Touchp" {
+	dwt enabled
+	tap enabled
+	natural_scroll disabled
+	middle_emulation enabled
+}
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
-# The escape symbol "\" has to be removed.
 # Read `man 5 sway-input` for more information about this section.
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Key bindings
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 #
 # Basics:
 #
@@ -105,8 +94,8 @@ output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
   bindsym $mod+Shift+$down move down
   bindsym $mod+Shift+$up move up
   bindsym $mod+Shift+$right move right
-  
-	# ditto, with arrow keys
+
+  # ditto, with arrow keys
   bindsym $mod+Shift+Left move left
   bindsym $mod+Shift+Down move down
   bindsym $mod+Shift+Up move up
@@ -126,8 +115,7 @@ output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
   bindsym $mod+8 workspace 8
   bindsym $mod+9 workspace 9
   bindsym $mod+0 workspace 10
-  
-	# move focused container to workspace
+  # move focused container to workspace
   bindsym $mod+Shift+1 move container to workspace 1
   bindsym $mod+Shift+2 move container to workspace 2
   bindsym $mod+Shift+3 move container to workspace 3
@@ -139,7 +127,7 @@ output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
   bindsym $mod+Shift+9 move container to workspace 9
   bindsym $mod+Shift+0 move container to workspace 10
   # Note: workspaces can have any name you want, not just numbers.
-	# We just use 1-10 as the default.
+  # We just use 1-10 as the default.
 
 #
 # Layout stuff:
@@ -169,64 +157,72 @@ output * bg /home/iv/Pictures/Wallpapers/1920x1200.jpg fill
 #
 # Scratchpad:
 #
-	# Sway has a "scratchpad", which is a bag of holding for windows.
-	# You can send windows there and get them back later.
+  # Sway has a "scratchpad", which is a bag of holding for windows.
+  # You can send windows there and get them back later.
 
-	# Move the currently focused window to the scratchpad
-	bindsym $mod+Shift+minus move scratchpad
+  # Move the currently focused window to the scratchpad
+  bindsym $mod+Shift+minus move scratchpad
 
-	# Show the next scratchpad window or hide the focused scratchpad window.
-	# If there are multiple scratchpad windows, this command cycles through them.
-	bindsym $mod+minus scratchpad show
+  # Show the next scratchpad window or hide the focused scratchpad window.
+  # If there are multiple scratchpad windows, this command cycles through them.
+  bindsym $mod+minus scratchpad show
 
-# -----------------------------------------------------
+#
 # Resizing containers:
-# -----------------------------------------------------
+#
 mode "resize" {
-	# left will shrink the containers width
-	# right will grow the containers width
-	# up will shrink the containers height
-	# down will grow the containers height
-	bindsym $left resize shrink width 10 px or 10 ppt
-	bindsym $down resize grow height 10 px or 10 ppt
-	bindsym $up resize shrink height 10 px or 10 ppt
-	bindsym $right resize grow width 10 px or 10 ppt
+  # left will shrink the containers width
+  # right will grow the containers width
+  # up will shrink the containers height
+  # down will grow the containers height
+  bindsym $left resize shrink width 10 px or 10 ppt
+  bindsym $down resize grow height 10 px or 10 ppt
+  bindsym $up resize shrink height 10 px or 10 ppt
+  bindsym $right resize grow width 10 px or 10 ppt
 
-	# ditto, with arrow keys
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
+  # ditto, with arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-	# return to default mode
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
+  # return to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Status Bar:
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Read `man 5 sway-bar` for more information about this section.
-set $bg #212121
-set $blue #00838F
+set $bg    #212121
+set $blue  #00838F
 set $brown #6D4C41
-set $gray #484848
+set $gray  #484848
 set $white #FFFFFF
+
 bar {
-	position top
-	height 25
-		colors {
-			statusline $white
-			background $bg
-			inactive_workspace $gray $gray #EEEEEE
-			active_workspace $gray $gray $white
-			focused_workspace $gray $blue $white
-		}
+  colors {
+    statusline $white
+    background $bg
+    inactive_workspace $gray $gray #EEEEEE
+    active_workspace $gray $gray $white
+    focused_workspace $gray $blue $white
+  }
+  height 25
+  position top
 }
+
+# ---------------------------------------------------------------------
+# Aesthetics
+# ---------------------------------------------------------------------
+gaps inner 5
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 3
 
 client.focused $blue $blue $white $blue $blue
 client.unfocused $gray $gray $white $gray $gray
 client.focused_inactive $gray $gray $white $gray $gray
-
