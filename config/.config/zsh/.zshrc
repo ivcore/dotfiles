@@ -1,16 +1,16 @@
-# -----------------------------------------------------
-# Most of the configs on this file are from https://github.com/eevee/rc
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# Most of the configs in this file are from https://github.com/eevee/rc
+# ---------------------------------------------------------------------
 autoload colors; colors
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Tab completion
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Force a reload of completion system if nothing matched; this fixes installing
 # a program and then trying to tab-complete its name
 _force_rehash() {
-    (( CURRENT == 1 )) && rehash
-    return 1    # Because we didn't really complete anything
+  (( CURRENT == 1 )) && rehash
+  return 1    # Because we didn't really complete anything
 }
 
 # Always use menu completion, and make the colors pretty!
@@ -44,17 +44,17 @@ setopt complete_in_word
 autoload -Uz compinit
 compinit
 
-# -----------------------------------------------------
-# History
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# HISTORY
+# ---------------------------------------------------------------------
 setopt extended_history hist_no_store hist_ignore_dups hist_expire_dups_first hist_find_no_dups inc_append_history share_history hist_reduce_blanks hist_ignore_space
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Other options
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 setopt autocd extendedglob nomatch rc_quotes
 unsetopt notify beep
 
@@ -64,42 +64,45 @@ WORDCHARS=${WORDCHARS//[&.;\/]}
 # Words cannot express how fucking sweet this is
 REPORTTIME=5
 
-# -----------------------------------------------------
-# Aliases
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# ALIASES
+# ---------------------------------------------------------------------
 
-# -----------------------------------------------------
-# Functions
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# PATH
+# ---------------------------------------------------------------------
+if [[ $(command -v ruby) ]]; then
+  PATH=$PATH:$(ruby -e 'print Gem.user_dir')/bin
+fi
+
+# ---------------------------------------------------------------------
+# FUNCTIONS
+# ---------------------------------------------------------------------
 # Usage: extract <file>
-# Description: extracts archived files
+# Description: Easy file extraction
 # Credit: http://nparikh.org/notes/zshrc.txt
 extract() {
-  if [ -f "$1" ]; then
-    case "$1" in
-      *.tar.bz2)  tar -jxvf "$1"                        ;;
-      *.tar.gz)   tar -zxvf "$1"                        ;;
-      *.bz2)      bunzip2 "$1"                          ;;
-      *.gz)       gunzip "$1"                           ;;
-      *.tar)      tar -xvf "$1"                         ;;
-      *.tbz2)     tar -jxvf "$1"                        ;;
-      *.tgz)      tar -zxvf "$1"                        ;;
-      *.zip)      unzip "$1"                            ;;
-      *.ZIP)      unzip "$1"                            ;;
-      *.pax)      cat "$1" | pax -r                     ;;
-      *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
-      *.Z)        uncompress "$1"                       ;;
-      *.xz)       xz --keep -d "$1"                     ;;
-      *) echo "'$1' cannot be extracted/mounted via extract()" ;;
-    esac
-  else
-     echo "'$1' is not a valid file to extract"
-  fi
+  case "$1" in
+    *.bz2)      bunzip2 "$1"                          ;;
+    *.gz)       gunzip "$1"                           ;;
+    *.tar)      tar -xvf "$1"                         ;;
+    *.tar.bz2)  tar -jxvf "$1"                        ;;
+    *.tar.gz)   tar -zxvf "$1"                        ;;
+    *.tbz2)     tar -jxvf "$1"                        ;;
+    *.tgz)      tar -zxvf "$1"                        ;;
+    *.pax)      cat "$1" | pax -r                     ;;
+    *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
+    *.xz)       xz --keep -d "$1"                     ;;
+    *.zip)      unzip "$1"                            ;;
+    *.Z)        uncompress "$1"                       ;;
+    *.ZIP)      unzip "$1"                            ;;
+    *) echo "'$1' cannot be extracted via extract()" ;;
+  esac
 }
 
-# -----------------------------------------------------
-# Keybindings
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# KEYBINDINGS
+# ---------------------------------------------------------------------
 bindkey -e
 
 # General movement
@@ -143,16 +146,16 @@ bindkey "\e[Z" reverse-menu-complete    # shift-tab to reverse menu
 # I want shared history for ^R, but I don't want another shell's activity to
 # mess with up/down.  This does that.
 down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
+zle set-local-history 1
+zle down-line-or-history
+zle set-local-history 0
 }
 zle -N down-line-or-local-history
 
 up-line-or-local-history() {
-    zle set-local-history 1
-    zle up-line-or-history
-    zle set-local-history 0
+zle set-local-history 1
+zle up-line-or-history
+zle set-local-history 0
 }
 zle -N up-line-or-local-history
 
@@ -161,15 +164,15 @@ bindkey "\eOA" up-line-or-local-history
 bindkey "\e[B" down-line-or-local-history
 bindkey "\eOB" down-line-or-local-history
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Set editors and fish-like syntax highlighting
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 export EDITOR=nvim
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 # Color man pages
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -179,18 +182,13 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# -----------------------------------------------------
-# Ruby 
-# -----------------------------------------------------
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-
-# -----------------------------------------------------
-# Prompt 
-# -----------------------------------------------------
+# ---------------------------------------------------------------------
+# PROMPT
+# ---------------------------------------------------------------------
 # walters (modified)
 if [[ "$TERM" != "dumb" ]]; then
-    PROMPT='%n@%m> '
-    RPROMPT="%B%(?..[%?] )%b%F{${1:-green}}%~%f"
+  PROMPT='%n@%m> '
+  RPROMPT="%B%(?..[%?] )%b%F{${1:-green}}%~%f"
 else
-    PROMPT="%(?..[%?] )%n@%m:%~> "
+  PROMPT="%(?..[%?] )%n@%m:%~> "
 fi
