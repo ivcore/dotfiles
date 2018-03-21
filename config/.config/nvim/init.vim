@@ -1,6 +1,6 @@
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " Vim-Plug
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " Install vim-plug if not present.
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -33,9 +33,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 call plug#end()
 
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " :options
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " 2 Moving around, searching and patterns
 set whichwrap=b,s,<,>,[,]
 set incsearch
@@ -91,9 +91,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " For all text files set 'textwidth' to 80 characters.
 " autocmd FileType text setlocal textwidth=80
 
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " Goyo.vim
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 function! s:goyo_enter()
   setlocal textwidth=80
   if exists('$TMUX')
@@ -111,9 +111,9 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " NERDTree
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeShowHidden=1
@@ -121,9 +121,49 @@ let g:NERDTreeWinSize=25
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeAutoDeleteBuffer=1
 
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
+" FUNCTIONS (for statusline)
+" ---------------------------------------------------------------------
+" Find out current buffer's size and return it.
+function! FileSize()
+  let l:bytes = getfsize(expand('%:p'))
+  if (l:bytes >= 1024)
+    let l:kbytes = l:bytes / 1024
+  endif
+  if (exists('kbytes') && l:kbytes >= 1000)
+    let l:mbytes = l:kbytes / 1000
+  endif
+
+  if l:bytes <= 0
+    return '0'
+  endif
+
+  if (exists('mbytes'))
+    return l:mbytes . 'MB '
+  elseif (exists('kbytes'))
+    return l:kbytes . 'KB '
+  else
+    return l:bytes . 'B '
+  endif
+endfunction
+
+" ---------------------------------------------------------------------
+" :h statusline
+" ---------------------------------------------------------------------
+set statusline=
+set statusline +=%<%f                  " relative path to current file
+set statusline +=\ %r                  " readonly flag [RO]
+set statusline +=%=                    " left/right separator
+set statusline +=%m                    " modified flag [+]
+set statusline +=\ [%{&ff}]            " file format. p.e. [unix]
+set statusline +=\ %y                  " file type. p.e. [vim]
+set statusline +=\ %-3(%{FileSize()}%) " size of file
+set statusline +=\ %13(%l/%L\ -\ %c%)  " position of the cursor
+set statusline +=\ %P                  " percentage through file
+
+" ---------------------------------------------------------------------
 " Colors and syntax
-" -----------------------------------------------------
+" ---------------------------------------------------------------------
 " In color console, enable coloring and search highlighting.
 if &t_Co > 2 || has("gui_running")
   syntax enable
