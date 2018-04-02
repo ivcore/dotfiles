@@ -158,7 +158,7 @@ set statusline +=%m                    " modified flag [+]
 set statusline +=\ [%{&ff}]            " file format. p.e. [unix]
 set statusline +=\ %y                  " file type. p.e. [vim]
 set statusline +=\ %-3(%{FileSize()}%) " size of file
-set statusline +=\ %13(%l/%L\ -\ %c%)  " position of the cursor
+set statusline +=\ %13(%c-%l/%L\ %)    " position of the cursor
 set statusline +=\ %P                  " percentage through file
 
 " ---------------------------------------------------------------------
