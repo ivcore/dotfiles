@@ -14,6 +14,7 @@
 	# Status/Logging.
 	hist = log --graph --oneline --abbrev-commit --all # Show custom graph
 	lc = shortlog --summary --numbered # List contributors
+	ss = status
 
 	# Reset.
 	unstage = reset HEAD --     # Mixed reset (affects HEAD and Index)
@@ -48,10 +49,6 @@
 [core]
 	eol = lf
 	autocrlf = false
-
-[help]
-	# Correct typos
-	autocorrect = 1
 
 [pretty]
 	# Check `man git-log` PRETTY FORMATS to see the placeholders
