@@ -17,9 +17,8 @@
 	ss = status
 
 	# Reset.
-	unstage = reset HEAD --     # Mixed reset (affects HEAD and Index)
-	undo = reset --soft HEAD~1  # Undo last commit (affects HEAD only)
-	reset = reset --hard HEAD~1 # Remove last commit (from HEAD, Index and Working Dir)
+	undo = reset --soft # Undo last commit (affects HEAD only)
+	fuckit = reset --hard # Remove last commit (from HEAD, Index and Working Dir)
 
 	# Submodules.
 	subpl = submodule update --init --recursive
@@ -47,6 +46,7 @@
 	unmerged = red bold
 
 [core]
+	editor = vim
 	eol = lf
 	autocrlf = false
 
@@ -64,15 +64,6 @@
 
 [url "git://github.com/"]
 	insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
-
-[url "git://gist.github.com/"]
-	insteadOf = "gist:"
 
 # Use separate file for username / github token / etc
 [include]
