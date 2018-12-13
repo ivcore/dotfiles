@@ -42,6 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Coloschemes
   Plug 'dreamtigers/pseudokai'
+  Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
 
 call plug#end()
@@ -131,6 +132,22 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:vim_markdown_folding_disabled = 1
 
 " ---------------------------------------------------------------------
+" gruvbox
+" ---------------------------------------------------------------------
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'hard'
+
+" ---------------------------------------------------------------------
+" lightline
+" ---------------------------------------------------------------------
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'active': {
+  \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']]
+  \ }
+  \}
+
+" ---------------------------------------------------------------------
 " FUNCTIONS (for statusline)
 " ---------------------------------------------------------------------
 " Find out current buffer's size and return it.
@@ -164,4 +181,4 @@ if &t_Co > 2 || has("gui_running")
   syntax enable
 endif
 
-silent! colorscheme pseudokai
+silent! colorscheme gruvbox
