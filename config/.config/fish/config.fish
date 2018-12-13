@@ -11,10 +11,22 @@ if command -v ruby > /dev/null
 
   if test ! -d $ruby_bin_dir
     mkdir -p $ruby_bin_dir
+    echo "Created $ruby_bin_dir directory"
   end
 
   set -x GEM_HOME $ruby_dir
   set -x PATH $PATH $ruby_bin_dir
+end
+
+# How can we miss Rust?
+if command -v cargo > /dev/null
+  set -l cargo_bin_dir ~/.cargo/bin
+  if test ! -d $cargo_bin_dir
+    mkdir -p $cargo_bin_dir
+    echo "Created $cargo_bin_dir directory"
+  end
+
+  set -x PATH $PATH $cargo_bin_dir
 end
 
 # The same applies to Yarn
@@ -23,6 +35,7 @@ if command -v yarn > /dev/null
 
   if test ! -d $yarn_bin_dir
     mkdir -p $yarn_bin_dir
+    echo "Created $yarn_bin_dir directory"
   end
 
   set -x PATH $PATH $yarn_bin_dir
