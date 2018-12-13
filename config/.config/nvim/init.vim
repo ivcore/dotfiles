@@ -10,32 +10,38 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-  " Autopairing of tags and characters
-  Plug 'alvan/vim-closetag'
+  " Easy switch between single line and multiline code (gS and gJ)
+  Plug 'AndrewRadev/splitjoin.vim'
+  " Glorious statusline
+  Plug 'itchyny/lightline.vim', { 'do': ':set noshowmode' }
+  " Autopairing of characters []{}()""''
   Plug 'jiangmiao/auto-pairs'
-
-  " Syntax for various languages
-  Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
-  Plug 'othree/html5.vim'
-  Plug 'tpope/vim-markdown'
-  Plug 'tpope/vim-git'
-  " Plug 'ElmCast/elm-vim', { 'for': ['elm'] }
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-  Plug 'jparise/vim-graphql'
-  Plug 'elzr/vim-json'
-
-  Plug 'lilydjwg/colorizer'
-
   " For the inner writer...
   Plug 'junegunn/goyo.vim'
+  " Colorize all text in the form of #rrggbb
+  Plug 'lilydjwg/colorizer'
+  " Parenthesis/Quotes (and tags) as text objects
+  Plug 'tpope/vim-surround'
+
+  " Syntax for various languages
+  Plug 'StanAngeloff/php.vim'
+  Plug 'cespare/vim-toml'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'mxw/vim-jsx'
+  Plug 'othree/html5.vim'
+  Plug 'pangloss/vim-javascript'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'rust-lang/rust.vim'
+  Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
+  Plug 'tpope/vim-git'
+  Plug 'HerringtonDarkholme/yats.vim'
+  " Plug 'peitalin/vim-jsx-typescript'
+  " Plug 'leafgarland/typescript-vim'
+  " Plug 'sirtaj/vim-openscad'
 
   " Coloschemes
   Plug 'dreamtigers/pseudokai'
   Plug 'vim-scripts/wombat'
-
-  " Glorious statusline
-  Plug 'itchyny/lightline.vim', { 'do': ':set noshowmode' }
 
 call plug#end()
 
@@ -112,6 +118,11 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" ---------------------------------------------------------------------
+" vim-markdown
+" ---------------------------------------------------------------------
+let g:vim_markdown_folding_disabled = 1
 
 " ---------------------------------------------------------------------
 " FUNCTIONS (for statusline)
