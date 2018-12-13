@@ -102,8 +102,11 @@ let g:closetag_filenames = '*.html, *.xhtml, *.phtml, *.jsx, *.js'
 " ---------------------------------------------------------------------
 " Goyo.vim
 " ---------------------------------------------------------------------
+let g:goyo_width='82'
+let g:goyo_height='100%'
 function! s:goyo_enter()
-  setlocal textwidth=80
+  setlocal textwidth=78
+  setlocal formatoptions+=a formatoptions-=l
   if exists('$TMUX')
     silent !tmux set status off
   endif
@@ -111,6 +114,7 @@ endfunction
 
 function! s:goyo_leave()
   set textwidth=0
+  set formatoptions-=a
   if exists('$TMUX')
     silent !tmux set status on
   endif
