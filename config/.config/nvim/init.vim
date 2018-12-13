@@ -89,6 +89,11 @@ set shiftround
 " Filetype indent should be the one handling indentation.
 " set smartindent
 
+" Shows the effects of a command incrementally as you type. (nvim option)
+if has('nvim')
+  set inccommand=nosplit
+endif
+
 " Others
 " Allow different indentations per filetype.
 filetype plugin indent on
