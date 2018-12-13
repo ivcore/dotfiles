@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Syntax for various languages
   Plug 'StanAngeloff/php.vim'
   Plug 'cespare/vim-toml'
+  Plug 'fatih/vim-go'
   Plug 'kchmck/vim-coffee-script'
   Plug 'mxw/vim-jsx'
   Plug 'othree/html5.vim'
@@ -95,9 +96,10 @@ filetype plugin indent on
 autocmd BufWritePre * :%s/\s\+$//e
 
 " ---------------------------------------------------------------------
-" vim-closetag
+" vim-go
 " ---------------------------------------------------------------------
-let g:closetag_filenames = '*.html, *.xhtml, *.phtml, *.jsx, *.js'
+" Don't show the error message saying I'm running an old version of Vim
+let g:go_version_warning = 0
 
 " ---------------------------------------------------------------------
 " Goyo.vim
