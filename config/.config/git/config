@@ -1,11 +1,9 @@
-# A good list of alises http://haacked.com/archive/2014/07/28/github-flow-aliases/
 [alias]
 	# Clone.
 	sclone = clone --depth=1
 
 	# Diff.
-	d = diff --color-words
-	dc = diff --cached
+	staged = diff --cached
 
 	# Push.
 	pom = push origin master
@@ -18,10 +16,14 @@
 
 	# Reset.
 	undo = reset --soft # Undo last commit (affects HEAD only)
+	uncommit = reset --soft HEAD^ # Alternative to `undo`
 	fuckit = reset --hard # Remove last commit (from HEAD, Index and Working Dir)
 
 	# Submodules.
 	subpl = submodule update --init --recursive
+
+	# Show the root directory of the repo
+	root = rev-parse --show-toplevel
 
 [color]
 	diff = auto
