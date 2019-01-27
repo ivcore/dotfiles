@@ -22,6 +22,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'lilydjwg/colorizer'
   " Parenthesis/Quotes (and tags) as text objects
   Plug 'tpope/vim-surround'
+  " Easy file browsing through tags
+  Plug 'majutsushi/tagbar'
 
   " Syntax for various languages
   Plug 'StanAngeloff/php.vim'

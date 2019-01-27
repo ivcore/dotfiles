@@ -1,29 +1,32 @@
 [alias]
-	# Clone.
-	sclone = clone --depth=1
+	# Shallow clone
+	shallow = clone --depth=1
 
-	# Diff.
+	# Diff
 	staged = diff --cached
 
-	# Push.
+	# Push
 	pom = push origin master
-	poh = push origin head
 
-	# Status/Logging.
+	# Status/Logging
 	hist = log --graph --oneline --abbrev-commit --all # Show custom graph
 	lc = shortlog --summary --numbered # List contributors
 	ss = status
 
-	# Reset.
+	# Reset
 	undo = reset --soft # Undo last commit (affects HEAD only)
-	uncommit = reset --soft HEAD^ # Alternative to `undo`
-	fuckit = reset --hard # Remove last commit (from HEAD, Index and Working Dir)
+	uncommit = reset --soft HEAD^ # Alternative name to `undo`
+	fuckit = reset --hard # Remove last commit (HEAD, index and working dir)
 
-	# Submodules.
+	# Submodules
 	subpl = submodule update --init --recursive
 
 	# Show the root directory of the repo
 	root = rev-parse --show-toplevel
+	dir = rev-parse --show-toplevel # Alternative name to `root`
+
+	# Generate ctags for the current repo
+	ctags = !.git/hooks/ctags
 
 [color]
 	diff = auto
@@ -51,6 +54,9 @@
 	editor = vim
 	eol = lf
 	autocrlf = false
+
+[init]
+	templatedir = "~/.config/git/template"
 
 [pretty]
 	# Check `man git-log` PRETTY FORMATS to see the placeholders
