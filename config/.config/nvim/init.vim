@@ -85,13 +85,13 @@ set noshowmode
 set undofile
 
 " 14 Tabs and indenting
-set shiftwidth=2
-set softtabstop=2
-set shiftround
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
 " Filetype indent should be the one handling indentation.
 " set smartindent
 
-" Shows the effects of a command incrementally as you type. (nvim option)
+" Shows the effects of a command incrementally as you type. (nvim only)
 if has('nvim')
   set inccommand=nosplit
 endif
@@ -123,8 +123,8 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
-  set textwidth=0
-  set formatoptions-=a
+  set textwidth&
+  set formatoptions&
   if exists('$TMUX')
     silent !tmux set status on
   endif
@@ -155,32 +155,6 @@ let g:lightline = {
   \}
 
 " ---------------------------------------------------------------------
-" FUNCTIONS (for statusline)
-" ---------------------------------------------------------------------
-" Find out current buffer's size and return it.
-function! FileSize()
-  let l:bytes = getfsize(expand('%:p'))
-  if (l:bytes >= 1024)
-    let l:kbytes = l:bytes / 1024
-  endif
-  if (exists('kbytes') && l:kbytes >= 1000)
-    let l:mbytes = l:kbytes / 1000
-  endif
-
-  if l:bytes <= 0
-    return '0'
-  endif
-
-  if (exists('mbytes'))
-    return l:mbytes . 'MB '
-  elseif (exists('kbytes'))
-    return l:kbytes . 'KB '
-  else
-    return l:bytes . 'B '
-  endif
-endfunction
-
-" ---------------------------------------------------------------------
 " Colors and syntax
 " ---------------------------------------------------------------------
 " In color console, enable coloring and search highlighting.
@@ -189,3 +163,4 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 silent! colorscheme gruvbox
+" vim: shiftwidth=2 softtabstop=2 expandtab
