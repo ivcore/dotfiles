@@ -101,7 +101,7 @@ endif
 filetype plugin indent on
 
 " On save, remove trailing whitespace.
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " ---------------------------------------------------------------------
 " vim-go
