@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Syntax for various languages
   Plug 'StanAngeloff/php.vim'
   Plug 'cespare/vim-toml'
+  Plug 'elixir-editors/vim-elixir'
   Plug 'fatih/vim-go'
   Plug 'kchmck/vim-coffee-script'
   Plug 'mxw/vim-jsx'
@@ -41,6 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'peitalin/vim-jsx-typescript'
   " Plug 'leafgarland/typescript-vim'
   " Plug 'sirtaj/vim-openscad'
+  Plug 'mhinz/vim-mix-format'
 
   " Coloschemes
   Plug 'dreamtigers/pseudokai'
