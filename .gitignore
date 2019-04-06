@@ -44,7 +44,6 @@ backup/*
 config/.config/nvim/autoload/
 config/.config/nvim/plugged/
 config/.config/nvim/.netrwhist
-config/.config/zsh/.zcompdump
 *directory
 emacs/.emacs.d/*
 !emacs/.emacs.d/init.el
