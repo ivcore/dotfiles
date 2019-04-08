@@ -41,9 +41,4 @@ Thumbs.db
 # .dotfiles #
 #############
 backup/*
-.config/nvim/autoload/
-.config/nvim/plugged/
-.config/nvim/.netrwhist
 *directory
-.emacs.d/*
-!.emacs.d/init.el
