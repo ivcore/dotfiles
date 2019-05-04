@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dreamtigers/pseudokai'
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
+  Plug 'dracula/vim',{'as':'dracula'}
 
 call plug#end()
 

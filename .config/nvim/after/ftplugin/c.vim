@@ -1,6 +1,6 @@
 " See `:help ftplugin-overrule`
 
-let b:undo_ftplugin = "setl et< sts< fo<"
+let b:undo_ftplugin = "setl et< sts< tw< fo<"
 
 " Make sure a hard tab is used, required for most make programs
 setlocal softtabstop=0 shiftwidth=8 noexpandtab
