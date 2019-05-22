@@ -44,11 +44,11 @@ link-dotfile() {
 list-dotfiles() {
     find . -maxdepth 1        \
 	-not -name .           \
+	-not -name .config     \
 	-not -name .git        \
 	-not -name .gitignore  \
 	-not -name README.md   \
-	-not -name install.sh  \
-	-not -name .config
+	-not -name install.sh
 }
 
 list-xdgconfigs() {
