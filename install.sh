@@ -6,15 +6,15 @@ main() {
     if [ ! -d "$HOME/.config" ]; then
 	mkdir --verbose "$HOME/.config"
     fi
-    list-dotfiles | while read -r filename; do
-	link-dotfile "$filename"
+    list_dotfiles | while read -r filename; do
+	link_dotfile "$filename"
     done
-    list-xdgconfigs | while read -r filename; do
-	link-dotfile "$filename"
+    list_xdgconfigs | while read -r filename; do
+	link_dotfile "$filename"
     done
 }
 
-link-dotfile() {
+link_dotfile() {
     DOT_FILE="$1"
     MOVE_OLD=0
     PERFORM=1
@@ -41,7 +41,7 @@ link-dotfile() {
     fi
 }
 
-list-dotfiles() {
+list_dotfiles() {
     find . -maxdepth 1        \
 	-not -name .           \
 	-not -name .config     \
@@ -51,7 +51,7 @@ list-dotfiles() {
 	-not -name install.sh
 }
 
-list-xdgconfigs() {
+list_xdgconfigs() {
     find ./.config -maxdepth 1 \
 	-not -name .config
 }
