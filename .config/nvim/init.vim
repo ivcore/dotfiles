@@ -47,6 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
   Plug 'dracula/vim',{'as':'dracula'}
+  Plug 'srcery-colors/srcery-vim'
 
 call plug#end()
 
@@ -145,11 +146,18 @@ let g:vim_markdown_folding_disabled = 1
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
 
+
+" ---------------------------------------------------------------------
+" srcery
+" ---------------------------------------------------------------------
+let g:srcery_italic = 1
+let g:srcery_inverse_matches = 1
+
 " ---------------------------------------------------------------------
 " lightline
 " ---------------------------------------------------------------------
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'srcery',
   \ 'active': {
   \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']]
   \ }
@@ -163,5 +171,5 @@ if &t_Co > 2 || has("gui_running")
   syntax enable
 endif
 
-silent! colorscheme gruvbox
+silent! colorscheme srcery
 " vim: shiftwidth=2 softtabstop=2 expandtab
