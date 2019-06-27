@@ -17,8 +17,8 @@
 	dir = rev-parse --show-toplevel # Alternative name to `root`
 	# Generate ctags for the current repo
 	ctags = !.git/hooks/ctags
-	# Push to all remotes
-	pushall = !git remote | xargs -L1 git push --all
+	# Push to all remotes (p.e. git pushall master)
+	pushall = !git remote | xargs -L1 -I R git push R
 [color]
 	diff = auto
 	ui = auto
