@@ -42,6 +42,7 @@ end
 # Set the best editor
 if command -v nvim > /dev/null
   set -x EDITOR nvim
+  set -x MANPAGER 'nvim +Man!'
 else if command -v vim > /dev/null
   set -x EDITOR vim
 else
