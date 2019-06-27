@@ -105,6 +105,13 @@ filetype plugin indent on
 " On save, remove trailing whitespace.
 " autocmd BufWritePre * :%s/\s\+$//e
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file (taken from /usr/share/vim/vim*/vimrc_example.vim)
+autocmd BufReadPost *
+  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+
 " ---------------------------------------------------------------------
 " vim-go
 " ---------------------------------------------------------------------
@@ -114,7 +121,7 @@ let g:go_version_warning = 0
 " ---------------------------------------------------------------------
 " Goyo.vim
 " ---------------------------------------------------------------------
-let g:goyo_width='82'
+let g:goyo_width='80'
 let g:goyo_height='100%'
 function! s:goyo_enter()
   setlocal textwidth=78
@@ -145,7 +152,6 @@ let g:vim_markdown_folding_disabled = 1
 " ---------------------------------------------------------------------
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'hard'
-
 
 " ---------------------------------------------------------------------
 " srcery
