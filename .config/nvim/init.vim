@@ -16,8 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'itchyny/lightline.vim', { 'do': ':set noshowmode' }
   " Autopairing of characters []{}()""''
   Plug 'jiangmiao/auto-pairs'
-  " For the inner writer...
-  Plug 'junegunn/goyo.vim'
   " Colorize all text in the form of #rrggbb
   Plug 'lilydjwg/colorizer'
   " Parenthesis/Quotes (and tags) as text objects
@@ -117,30 +115,6 @@ autocmd BufReadPost *
 " ---------------------------------------------------------------------
 " Don't show the error message saying I'm running an old version of Vim
 let g:go_version_warning = 0
-
-" ---------------------------------------------------------------------
-" Goyo.vim
-" ---------------------------------------------------------------------
-let g:goyo_width='80'
-let g:goyo_height='100%'
-function! s:goyo_enter()
-  setlocal textwidth=78
-  setlocal formatoptions+=a formatoptions-=l
-  if exists('$TMUX')
-    silent !tmux set status off
-  endif
-endfunction
-
-function! s:goyo_leave()
-  set textwidth&
-  set formatoptions&
-  if exists('$TMUX')
-    silent !tmux set status on
-  endif
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " ---------------------------------------------------------------------
 " vim-markdown
