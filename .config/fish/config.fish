@@ -30,7 +30,7 @@ end
 
 # The same applies to Yarn
 if command -v yarn > /dev/null
-  set -l yarn_bin_dir (yarn global bin 2> /dev/null)
+  set -l yarn_bin_dir "$HOME/.yarn/bin"
   if test ! -d $yarn_bin_dir
     echo "Creating $yarn_bin_dir"
     mkdir -p $yarn_bin_dir

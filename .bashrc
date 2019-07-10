@@ -32,7 +32,7 @@ fi
 
 # The same applies to Yarn
 if [[ $(command -v yarn) ]]; then
-  yarn_bin_dir="$(yarn global bin 2> /dev/null)"
+  yarn_bin_dir="$HOME/.yarn/bin"
   if [[ ! -d "$yarn_bin_dir" ]]; then
     echo "Creating $yarn_bin_dir"
     mkdir -p "$yarn_bin_dir"
