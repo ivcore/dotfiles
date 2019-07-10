@@ -87,8 +87,9 @@ set noshowmode
 set undofile
 
 " 14 Tabs and indenting
+set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+" set softtabstop=4
 set noexpandtab
 " Filetype indent should be the one handling indentation.
 " set smartindent
@@ -160,4 +161,4 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 silent! colorscheme srcery
-" vim: shiftwidth=2 softtabstop=2 expandtab
+" vim: tabstop=2 shiftwidth=2 softtabstop=2 expandtab
