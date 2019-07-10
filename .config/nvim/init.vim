@@ -12,6 +12,8 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Easy switch between single line and multiline code (gS and gJ)
   Plug 'AndrewRadev/splitjoin.vim'
+  " Let's all agree on style using editorconfig
+  Plug 'editorconfig/editorconfig-vim'
   " Glorious statusline
   Plug 'itchyny/lightline.vim', { 'do': ':set noshowmode' }
   " Autopairing of characters []{}()""''
@@ -109,6 +111,12 @@ autocmd BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
+
+" ---------------------------------------------------------------------
+" editorconfig
+" ---------------------------------------------------------------------
+" Highlight only the characters that go beyond the max line
+let g:EditorConfig_max_line_indicator = "exceeding"
 
 " ---------------------------------------------------------------------
 " vim-go
