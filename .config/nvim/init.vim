@@ -20,6 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jiangmiao/auto-pairs'
   " Colorize all text in the form of #rrggbb
   Plug 'lilydjwg/colorizer'
+  " Easy comment of code
+  Plug 'tpope/vim-commentary'
   " Parenthesis/Quotes (and tags) as text objects
   Plug 'tpope/vim-surround'
 
@@ -43,7 +45,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mhinz/vim-mix-format'
 
   " Coloschemes
-  Plug 'dreamtigers/pseudokai'
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
   Plug 'dracula/vim',{'as':'dracula'}
