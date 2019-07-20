@@ -20,26 +20,16 @@ if [[ $(command -v ruby) ]]; then
 fi
 
 # How can we miss Rust?
-if [[ $(command -v cargo) ]]; then
-  cargo_bin_dir="$HOME/.cargo/bin"
-  if [[ ! -d "$cargo_bin_dir" ]]; then
-    echo "Creating $cargo_bin_dir"
-    mkdir -p "$cargo_bin_dir"
-  fi
-
-  PATH=$PATH:"$cargo_bin_dir"
+if [[ ! -d "$HOME/.cargo/bin" ]]; then
+	mkdir --parents --verbose "$HOME/.cargo/bin"
 fi
+PATH=$PATH:"$HOME/.cargo/bin"
 
 # The same applies to Yarn
-if [[ $(command -v yarn) ]]; then
-  yarn_bin_dir="$HOME/.yarn/bin"
-  if [[ ! -d "$yarn_bin_dir" ]]; then
-    echo "Creating $yarn_bin_dir"
-    mkdir -p "$yarn_bin_dir"
-  fi
-
-  PATH=$PATH:"$yarn_bin_dir"
+if [[ ! -d "$HOME/.yarn/bin" ]]; then
+	mkdir --parents --verbose "$HOME/.yarn/bin"
 fi
+PATH=$PATH:"$HOME/.yarn/bin"
 
 # ---------------------------------------------------------------------
 # FUNCTIONS

@@ -18,26 +18,16 @@ if command -v ruby > /dev/null
 end
 
 # How can we miss Rust?
-if command -v cargo > /dev/null
-  set -l cargo_bin_dir "$HOME/.cargo/bin"
-  if test ! -d $cargo_bin_dir
-    echo "Creating $cargo_bin_dir"
-    mkdir -p $cargo_bin_dir
-  end
-
-  set -x PATH $PATH $cargo_bin_dir
+if test ! -d "$HOME/.cargo/bin"
+  mkdir --parents --verbose "$HOME/.cargo/bin"
 end
+set -x PATH $PATH "$HOME/.cargo/bin"
 
 # The same applies to Yarn
-if command -v yarn > /dev/null
-  set -l yarn_bin_dir "$HOME/.yarn/bin"
-  if test ! -d $yarn_bin_dir
-    echo "Creating $yarn_bin_dir"
-    mkdir -p $yarn_bin_dir
-  end
-
-  set -x PATH $PATH $yarn_bin_dir
+if test ! -d "$HOME/.yarn/bin"
+  mkdir --parents --verbose "$HOME/.yarn/bin"
 end
+set -x PATH $PATH "$HOME/.yarn/bin"
 
 # Set the best editor
 if command -v nvim > /dev/null
