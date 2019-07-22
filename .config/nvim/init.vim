@@ -15,11 +15,13 @@ call plug#begin('~/.config/nvim/plugged')
   " Let's all agree on style using editorconfig
   Plug 'editorconfig/editorconfig-vim'
   " Glorious statusline
-  Plug 'itchyny/lightline.vim', { 'do': ':set noshowmode' }
+  Plug 'itchyny/lightline.vim', {'do': ':set noshowmode'}
   " Autopairing of characters []{}()""''
   Plug 'jiangmiao/auto-pairs'
   " Colorize all text in the form of #rrggbb
   Plug 'lilydjwg/colorizer'
+  " Facilitate Elixir formatting
+  " Plug 'mhinz/vim-mix-format'
   " Easy comment of code
   Plug 'tpope/vim-commentary'
   " Parenthesis/Quotes (and tags) as text objects
@@ -36,18 +38,16 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
   Plug 'rust-lang/rust.vim'
-  Plug 'tikhomirov/vim-glsl', { 'for': ['glsl', 'vert', 'lua'] }
+  Plug 'tikhomirov/vim-glsl', {'for': ['glsl', 'vert', 'lua']}
   Plug 'tpope/vim-git'
   Plug 'HerringtonDarkholme/yats.vim'
   " Plug 'peitalin/vim-jsx-typescript'
   " Plug 'leafgarland/typescript-vim'
-  " Plug 'sirtaj/vim-openscad'
-  Plug 'mhinz/vim-mix-format'
 
   " Coloschemes
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
-  Plug 'dracula/vim',{'as':'dracula'}
+  Plug 'dracula/vim', {'as': 'dracula'}
   Plug 'srcery-colors/srcery-vim'
 
 call plug#end()
