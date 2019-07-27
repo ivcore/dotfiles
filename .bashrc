@@ -31,31 +31,6 @@ if [[ ! -d "$HOME/.yarn/bin" ]]; then
 fi
 PATH=$PATH:"$HOME/.yarn/bin"
 
-# ---------------------------------------------------------------------
-# FUNCTIONS
-# ---------------------------------------------------------------------
-# Usage: extract <file>
-# Description: Easy file extraction
-# Credit: http://nparikh.org/notes/zshrc.txt
-extract() {
-  case "$1" in
-    *.bz2)     bunzip2 "$1"                      ;;
-    *.gz)      gunzip "$1"                       ;;
-    *.tar)     tar -xvf "$1"                     ;;
-    *.tar.bz2) tar -jxvf "$1"                    ;;
-    *.tar.gz)  tar -zxvf "$1"                    ;;
-    *.tbz2)    tar -jxvf "$1"                    ;;
-    *.tgz)     tar -zxvf "$1"                    ;;
-    *.pax)     cat "$1" | pax -r                 ;;
-    *.pax.Z)   uncompress "$1" --stdout | pax -r ;;
-    *.xz)      xz --keep -d "$1"                 ;;
-    *.zip)     unzip "$1"                        ;;
-    *.Z)       uncompress "$1"                   ;;
-    *.ZIP)     unzip "$1"                        ;;
-    *) echo "'$1' cannot be extracted via extract()" ;;
-  esac
-}
-
 # Line wrap on window resize.
 shopt -s checkwinsize
 
