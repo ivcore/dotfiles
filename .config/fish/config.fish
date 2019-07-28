@@ -4,6 +4,9 @@ set -gx fish_prompt_pwd_dir_length 0
 # ---------------------------------------------------------------------
 # PATH
 # ---------------------------------------------------------------------
+# First, we export the local bin
+set -x PATH $PATH "$HOME/bin"
+
 # If Ruby exists, we want to have it's bins available.
 if command -v ruby > /dev/null
   set -l ruby_dir (ruby -e 'print Gem.user_dir')

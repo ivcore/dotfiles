@@ -6,6 +6,9 @@ alias ..="cd .."
 # ---------------------------------------------------------------------
 # PATH
 # ---------------------------------------------------------------------
+# First, we export the local bin
+PATH=$PATH:"$HOME/bin"
+
 # If Ruby exists, we want to have it's bins available
 if [[ $(command -v ruby) ]]; then
   gem_dir="$(ruby -e 'print Gem.user_dir')"
