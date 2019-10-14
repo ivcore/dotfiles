@@ -1,0 +1,35 @@
+# Continue on download errors, for example to skip unavailable videos in a playlist
+--ignore-errors
+
+# ---------------------------------------------------------------------
+# Video Selection:
+# ---------------------------------------------------------------------
+# Download only the video, if the URL refers to a video and a playlist.
+--no-playlist
+
+# ---------------------------------------------------------------------
+# Filesystem Options:
+# ---------------------------------------------------------------------
+# "%(title)s-%(id)s.%(ext)s"
+--output "~/Videos/%(title)s.%(ext)s"
+
+# Restrict filenames to only ASCII characters, and avoid "&" and spaces in filenames
+--restrict-filenames
+
+# ---------------------------------------------------------------------
+# Video	Format Options:
+# ---------------------------------------------------------------------
+--format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+# Prefer free video formats unless a specific one is requested
+--prefer-free-formats
+
+# ---------------------------------------------------------------------
+# Subtitle Options:
+# ---------------------------------------------------------------------
+--write-sub
+--sub-lang en,es
+
+# ---------------------------------------------------------------------
+# Post-processing Options:
+# ---------------------------------------------------------------------
+--convert-subs 'vtt'
