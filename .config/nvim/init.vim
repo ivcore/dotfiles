@@ -18,13 +18,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'itchyny/lightline.vim', {'do': ':set noshowmode'}
   " Autopairing of characters []{}()""''
   Plug 'jiangmiao/auto-pairs'
+  " Ease aligning
+  Plug 'junegunn/vim-easy-align'
   " Colorize all text in the form of #rrggbb
   Plug 'lilydjwg/colorizer'
-  " Facilitate Elixir formatting
-  " Plug 'mhinz/vim-mix-format'
-  " Easy comment of code
+  " Use `gcc` to toggle comment of code
   Plug 'tpope/vim-commentary'
-  " Parenthesis/Quotes (and tags) as text objects
+  " Use `s` to treat parenthesis/quotes as text objects
   Plug 'tpope/vim-surround'
 
   " Syntax for various languages
@@ -37,8 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'othree/html5.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
-  Plug 'rust-lang/rust.vim'
-  Plug 'tikhomirov/vim-glsl', {'for': ['glsl', 'vert', 'lua']}
+  " Plug 'tikhomirov/vim-glsl', {'for': ['glsl', 'vert', 'lua']}
   Plug 'tpope/vim-git'
   Plug 'HerringtonDarkholme/yats.vim'
   " Plug 'peitalin/vim-jsx-typescript'
@@ -66,6 +65,7 @@ set number
 
 " 5 Syntax, highlighting and spelling
 set background=dark
+set synmaxcol=500
 set hlsearch
 set termguicolors
 " set cursorline
