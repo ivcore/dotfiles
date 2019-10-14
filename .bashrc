@@ -6,33 +6,17 @@ alias ..="cd .."
 # ---------------------------------------------------------------------
 # PATH
 # ---------------------------------------------------------------------
-# First, we export the local bin
-PATH=$PATH:"$HOME/bin"
+export PATH=$PATH:"$HOME/bin"
 
-# If Ruby exists, we want to have it's bins available
-if [[ $(command -v ruby) ]]; then
-  gem_dir="$(ruby -e 'print Gem.user_dir')"
-  gem_bin_dir="$gem_dir/bin"
-  if [[ ! -d "$gem_bin_dir" ]]; then
-    echo "Creating $gem_bin_dir"
-    mkdir -p "$gem_bin_dir"
-  fi
-
-  export GEM_PATH="$gem_dir"
-  PATH=$PATH:"$gem_bin_dir"
-fi
-
-# How can we miss Rust?
 if [[ ! -d "$HOME/.cargo/bin" ]]; then
 	mkdir --parents --verbose "$HOME/.cargo/bin"
 fi
-PATH=$PATH:"$HOME/.cargo/bin"
+export PATH=$PATH:"$HOME/.cargo/bin"
 
-# The same applies to Yarn
 if [[ ! -d "$HOME/.yarn/bin" ]]; then
 	mkdir --parents --verbose "$HOME/.yarn/bin"
 fi
-PATH=$PATH:"$HOME/.yarn/bin"
+export PATH=$PATH:"$HOME/.yarn/bin"
 
 # Line wrap on window resize.
 shopt -s checkwinsize
