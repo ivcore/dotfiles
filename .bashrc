@@ -33,38 +33,40 @@ case "$TERM" in
 esac
 
 # ---------------------------------------------------------------------
+# Colors (man console_codes.4)
+# ---------------------------------------------------------------------
+reset='\e[0m';
+bold='\e[1m';
+dim='\e[2m';
+black='\e[30m';
+red='\e[31m';
+green='\e[32m';
+yellow='\e[33m';
+blue='\e[34m';
+magenta='\e[35m';
+cyan='\e[36m';
+white='\e[37m';
+
+# ---------------------------------------------------------------------
 # PROMPT
 # ---------------------------------------------------------------------
+# user@host:dir
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
+    PS1="\u@\h:${cyan}\w${reset} \$ "
 else
     PS1='\u@\h:\w \$ '
 fi
 unset color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+#export GCC_COLORS='error=01;31:warning=01;33:note=01;36:caret=01;32:locus=01:quote=01'
 
 # ---------------------------------------------------------------------
 # ALIASES
@@ -72,23 +74,6 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-# ---------------------------------------------------------------------
-# Colors
-# ---------------------------------------------------------------------
-bold='';
-dim="\e[2m";
-reset="\e[0m";
-black="\e[1;30m";
-blue="\e[1;34m";
-cyan="\e[1;36m";
-green="\e[1;32m";
-orange="\e[1;33m";
-purple="\e[1;35m";
-red="\e[1;31m";
-violet="\e[1;35m";
-white="\e[1;37m";
-yellow="\e[1;33m";
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
