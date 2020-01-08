@@ -1,11 +1,18 @@
-" See `:help ftplugin-overrule`
+" Set 'commentstring', 'define', and 'include' back to their default C-friendly values
+setlocal commentstring&vim define&vim include&vim
+let b:undo_ftplugin .= '|setlocal commentstring< define< include<'
 
-let b:undo_ftplugin = "setl et< sts< tw< fo<"
+" Include macros in completion
+setlocal complete+=d
+let b:undo_ftplugin .= '|setlocal complete<'
 
-" Make sure a hard tab is used, required for most make programs
-setlocal softtabstop=0 shiftwidth=8 noexpandtab
-setlocal textwidth=80
+" Fold based on indent level, and start with all folds closed
+" setlocal foldmethod=indent
+" setlocal foldlevel=0
+" let b:undo_ftplugin .= '|setlocal foldmethod< foldlevel<'
 
-" Set 'formatoptions' to break comment lines but not other lines,
-" and insert the comment leader when hitting <CR> or using "o".
-setlocal fo-=t fo+=croql
+" Include system headers on UNIX
+if has('unix')
+  setlocal path+=/usr/include
+  let b:undo_ftplugin .= '|setlocal path<'
+endif

@@ -42,12 +42,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   " Plug 'peitalin/vim-jsx-typescript'
   " Plug 'leafgarland/typescript-vim'
+  Plug 'lervag/vimtex'
 
   " Coloschemes
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/wombat'
   Plug 'dracula/vim', {'as': 'dracula'}
   Plug 'srcery-colors/srcery-vim'
+  " peacock-contrast, frontier-contrast
+  " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 
 call plug#end()
 
@@ -61,6 +64,8 @@ set smartcase
 
 " 4 Displaying text
 set nowrap
+set list
+set lazyredraw
 set number
 
 " 5 Syntax, highlighting and spelling
@@ -72,8 +77,7 @@ set termguicolors
 " set colorcolumn=+1
 
 " 6 Multiple windows
-set splitbelow
-set splitright
+set splitbelow splitright
 
 " 9 Using the mouse
 if has('mouse')
@@ -86,14 +90,31 @@ set noshowmode
 
 " 13 Editing text
 set undofile
+set formatoptions+=1
 
 " 14 Tabs and indenting
-set tabstop=4
+" I give up. The tab is dead, long live the space.
 set shiftwidth=4
-" set softtabstop=4
-set noexpandtab
+set smarttab
+set softtabstop=-1
+set expandtab
 " Filetype indent should be the one handling indentation.
 " set smartindent
+
+" 18 Reading and writing files
+set nomodeline
+
+" 20 Command line editing
+set wildignore=*~,#*#,*.7z,.DS_Store,.git,.hg,.svn,*.a,*.adf,*.asc,*.au,*.aup
+      \,*.avi,*.bin,*.bmp,*.bz2,*.class,*.db,*.dbm,*.djvu,*.docx,*.exe
+      \,*.filepart,*.flac,*.gd2,*.gif,*.gifv,*.gmo,*.gpg,*.gz,*.hdf,*.ico
+      \,*.iso,*.jar,*.jpeg,*.jpg,*.m4a,*.mid,*.mp3,*.mp4,*.o,*.odp,*.ods,*.odt
+      \,*.ogg,*.ogv,*.opus,*.pbm,*.pdf,*.png,*.ppt,*.psd,*.pyc,*.rar,*.rm
+      \,*.s3m,*.sdbm,*.sqlite,*.swf,*.swp,*.tar,*.tga,*.ttf,*.wav,*.webm,*.xbm
+      \,*.xcf,*.xls,*.xlsx,*.xpm,*.xz,*.zip
+
+" 25 Various
+set virtualedit+=block
 
 " Shows the effects of a command incrementally as you type. (nvim only)
 if has('nvim')
@@ -113,6 +134,28 @@ autocmd BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
+
+" ---------------------------------------------------------------------
+" mappings
+" ---------------------------------------------------------------------
+" Without leader
+" stack a :nohlsearch command to stop highlighting searches on top of
+" clear and redraw of the screen.
+nnoremap <C-L>
+      \ :<C-U>nohlsearch<CR><C-L>
+
+" With leader
+"" Leader\h toggles highlighting search results
+nnoremap <Leader>h
+      \ :<C-U>set hlsearch! hlsearch?<CR>
+"
+nnoremap <Leader>m
+            \ :<C-U>make<CR>
+"" Leader\l toggles showing tab, end-of-line, and trailing white space
+noremap <Leader>l
+      \ :<C-U>set list! list?<CR>
+ounmap <Leader>l
+sunmap <Leader>l
 
 " ---------------------------------------------------------------------
 " editorconfig
@@ -159,9 +202,8 @@ let g:lightline = {
 " Colors and syntax
 " ---------------------------------------------------------------------
 " In color console, enable coloring and search highlighting.
-if &t_Co > 2 || has("gui_running")
+if &t_Co > 2 || has#("gui_running")
   syntax enable
 endif
 
 silent! colorscheme srcery
-" vim: tabstop=2 shiftwidth=2 softtabstop=2 expandtab
