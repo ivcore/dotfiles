@@ -2,7 +2,7 @@
 	# Shallow clone
 	shallow = clone --depth=1
 	# Diff
-	staged = diff --cached
+	staged = diff --staged
 	# Push
 	pom = push origin master
 	# Status/Logging
@@ -40,6 +40,8 @@
 [core]
 	editor = vim
 	autocrlf = input
+[diff]
+	algorithm = patience
 [init]
 	templatedir = "~/.config/git/template"
 [pretty]
