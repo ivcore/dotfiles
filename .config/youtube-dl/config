@@ -17,7 +17,7 @@
 --restrict-filenames
 
 # ---------------------------------------------------------------------
-# Video	Format Options:
+# Video Format Options:
 # ---------------------------------------------------------------------
 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
 # Prefer free video formats unless a specific one is requested

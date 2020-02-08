@@ -202,7 +202,7 @@ search_engine_display_mode = columns
 #
 #volume_change_step = 2
 #
-progressbar_look = "▀▀▀"
+# progressbar_look = "▀▀▀"
 #
 ## Available values: database, playlist.
 ##
