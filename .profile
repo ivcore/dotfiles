@@ -6,13 +6,8 @@ if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
     XKB_DEFAULT_LAYOUT=us exec sway
 fi
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	    . "$HOME/.bashrc"
-    fi
-fi
+# Keep around 4K lines of history in memory
+HISTSIZE=$((1 << 12))
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -32,4 +27,9 @@ fi
 # set PATH so it includes user's Node bin if it exists
 if [ -d "$HOME/.yarn/bin" ] ; then
     PATH="$PATH:$HOME/.yarn/bin"
+fi
+
+# The most friendly Python package manager
+if [ -d "$HOME/.poetry/bin" ] ; then
+    PATH="$HOME/.poetry/bin:$PATH"
 fi

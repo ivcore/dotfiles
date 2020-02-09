@@ -3,22 +3,21 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+      *) return ;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# Keep around 32K lines of history in file
+HISTFILESIZE=$((1 << 15))
+
+# Ignore duplicate commands and commands that start with a space
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Update LINES and COLUMNS after each command if necessary
 shopt -s checkwinsize
+# Put multi-line commands into one history entry
+shopt -s cmdhist
+# Append history to $HISTFILE rather than overwriting it
+shopt -s histappend
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -51,12 +50,7 @@ white='\e[37m';
 # PROMPT
 # ---------------------------------------------------------------------
 # user@host:dir
-if [ "$color_prompt" = yes ]; then
-    PS1="\u@\h:${cyan}\w${reset} \$ "
-else
-    PS1='\u@\h:\w \$ '
-fi
-unset color_prompt
+PS1='\u@\h:\w \$ '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

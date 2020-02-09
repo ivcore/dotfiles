@@ -43,3 +43,4 @@ Thumbs.db
 backup/*
 *directory
 watch_later
+*.AppImage
