@@ -37,6 +37,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'othree/html5.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
+  Plug 'rust-lang/rust.vim'
+  Plug 'slim-template/vim-slim'
   " Plug 'tikhomirov/vim-glsl', {'for': ['glsl', 'vert', 'lua']}
   Plug 'tpope/vim-git'
   Plug 'HerringtonDarkholme/yats.vim'
@@ -49,8 +51,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/wombat'
   Plug 'dracula/vim', {'as': 'dracula'}
   Plug 'srcery-colors/srcery-vim'
-  " peacock-contrast, frontier-contrast
-  " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 
 call plug#end()
 
