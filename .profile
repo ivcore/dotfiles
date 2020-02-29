@@ -19,6 +19,13 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes user's Go bin if it exists
+if [ -d "$HOME/go" ] ; then
+    export GOPATH="$HOME/go"
+    export GOBIN="$GOPATH/bin"
+    PATH="$PATH:$GOBIN"
+fi
+
 # set PATH so it includes user's Rust bin if it exists
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
