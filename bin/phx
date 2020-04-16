@@ -1,0 +1,9 @@
+#!/bin/sh
+# Rails-style command for Phoenix
+# Based on https://emmanuelhayford.com/multi-worded-aliases/
+
+case "$@" in
+    c|console) command iex -S mix ;;
+    s|server)  command mix phx.server ;;
+esac
+exit "$?"
