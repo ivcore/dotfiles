@@ -12,6 +12,9 @@ HISTFILESIZE=$((1 << 15))
 # Ignore duplicate commands and commands that start with a space
 HISTCONTROL=ignoreboth
 
+# Keep the times of the commands in history
+HISTTIMEFORMAT='%F %T  '
+
 # Update LINES and COLUMNS after each command if necessary
 shopt -s checkwinsize
 # Put multi-line commands into one history entry
@@ -49,8 +52,9 @@ white='\e[37m';
 # ---------------------------------------------------------------------
 # PROMPT
 # ---------------------------------------------------------------------
-# user@host:dir
-PS1='\u@\h:\w \$ '
+# user@host:dir $
+# PS1='\u@\h:\[e[32m\]\w\[\e[m\] \$ '
+PS1="\u@\h:\[\e[36m\]\w\[\e[m\] \\$ "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -73,9 +77,9 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
