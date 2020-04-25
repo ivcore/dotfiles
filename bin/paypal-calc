@@ -30,7 +30,7 @@ send_receive() {
 }
 
 amount="$1"
-fee_rate="${2:-2.9}"
+fee_rate="${2:-2.91}"
 
 recv="$(printf "scale=2; $amount-0.3-$amount*$fee_rate/100\n" | bc)"
 send="$(printf "scale=2; ($amount+0.3)*100/(100-$fee_rate)\n" | bc)"
