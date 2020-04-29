@@ -109,7 +109,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Srcery)
+# Colors (srcery)
 colors:
   # Default colors
   primary:
@@ -276,10 +276,10 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux) user login shell
 #   - (Windows) powershell
-shell:
-  program: /usr/bin/fish
-  args:
-    - --login
+# shell:
+#   program: /usr/bin/fish
+#   args:
+#     - --login
 
 # Startup directory
 #

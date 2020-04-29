@@ -1,3 +1,7 @@
+#!/usr/bin/env fish
+
+# Don't greet me, thank you.
+set fish_greeting
 # Don't print working directory in a compact way.
 set -gx fish_prompt_pwd_dir_length 0
 
