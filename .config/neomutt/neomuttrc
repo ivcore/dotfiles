@@ -1,0 +1,121 @@
+# Don't assume I don't want to continue editing a message if I didn't change
+# anything to it; if I want to send a message with just my signature, that's my
+# right.
+#
+unset abort_unmodified
+
+# Don't send terminal bells on errors, but do send them when new mail arrives,
+# because that should light up my tmux window label and/or urxvt window.
+#
+unset beep
+set beep_new
+
+# Don't prompt me for confirmation if I move messages into an existing mailbox;
+# just do it.
+#
+unset confirmappend
+
+# Switch to a subject format for forwarded messages that's more familiar to
+# most mail users.
+#
+set forward_format = 'Fw: %s'
+
+# Cache message headers for speed; this really helps.
+#
+set header_cache \
+	= ~/.cache/mutt/headers
+
+# Save command history; this saves other kinds of history as well, but all
+# I really want is to be able to run the same commands again even after I quit
+# Mutt.  We can afford to keep 2^8 of these, since it's the future and all.
+#
+set history_file = \
+	~/.cache/mutt/history
+set history = 256
+set save_history = $history
+
+# Always put a quoted copy of the whole message in a reply text for me to chop
+# up and respond to in Vim--no need to prompt me (the default does that).
+#
+set include
+
+# Look for new mail every X seconds.
+#
+set mail_check = 60
+
+# Don't mark unread emails as Old after I close mutt.
+#
+unset mark_old
+
+# Don't show any nasty little markers at the start of wrapped lines.  That's
+# the sort of thing Vim cares about, if need be.
+#
+unset markers
+
+# Created mailboxes are in Maildir format everywhere I deploy this, so I may as
+# well set it in here rather than get annoyed when Mutt starts dropping files
+# in mbox format everywhere if I leave it out of muttrc.d/*.rc.
+#
+set mbox_type = Maildir
+
+# Show a few messages of the index when in pager mode to give a little context
+# around the message.  I should have been doing this years ago.  Oh well.
+#
+set pager_index_lines = 6
+
+# Don't move on to the next message if we're at the end of the current one just
+# because I executed <next-page>.
+#
+set pager_stop
+
+# Use the abook program for finding and completing addresses with ^T.  I do use
+# the aliases system for regular correspondents, too.
+#
+set query_command = 'abook --mutt-query %s'
+
+# Check with me whether I really want to quit, just in case I've hit "q" too
+# many times trying to get out of e.g. the aliases menu.
+#
+set quit = ask-yes
+
+# I prefer a slightly stricter pattern to match what is and isn't a quote; this
+# avoids flagging things like closing braces on new lines in code blocks as
+# quotes.
+#
+set quote_regex = '^(>[ \t]*)+'
+
+# Don't offer to resume a postponed message when I hit <mail>; I'll use
+# <recall-message> for that.
+#
+unset recall
+
+# Don't delay on switching or altering mailboxes so that I see the messages;
+# just do it straight away.
+#
+set sleep_time = 0
+
+# Only use the headers with proper references to link messages in a thread;
+# don't try to use pattern matches on subjects, which might be rubbish like
+# "hi".  If I need to link a thread together because it's been broken somehow,
+# I'll do that manually.
+#
+set strict_threads
+
+# Use format=flowed, continuing paragraphs for lines that end with a single
+# space, and use that wrapping information to use the full width of the
+# terminal for the wrapping display.
+#
+set text_flowed
+set reflow_wrap = 0
+
+# Don't wait for me to press a key after running a command if it exited
+# successfully; this still warns me if something failed, though.
+#
+unset wait_key
+
+# When threads are on, sort them by the date the most recent message within
+# them was received.
+#
+set sort_aux = last-date-received
+
+source ~/.config/neomutt/binds.neomuttrc
