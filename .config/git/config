@@ -44,6 +44,8 @@
 [pretty]
 	# Check `man git-log` PRETTY FORMATS to see the placeholders
 	custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s"
+[pull]
+	ff = only
 # Rewrites of repo paths
 [url "git@github.com:"]
 	insteadOf = "gh:"
