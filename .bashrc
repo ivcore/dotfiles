@@ -27,6 +27,16 @@ shopt -s checkwinsize
 shopt -s cmdhist
 # Append history to $HISTFILE rather than overwriting it
 shopt -s histappend
+# Don't try to tell me when my mail is read
+shopt -u mailwarn
+# Don't complete a Tab press on an empty line with every possible command
+shopt -s no_empty_cmd_completion
+# Use programmable completion, if available
+shopt -s progcomp
+# Warn me if I try to shift nonexistent values off an array
+shopt -s shift_verbose
+# Don't search $PATH to find files for the `source` builtin
+shopt -u sourcepath
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
