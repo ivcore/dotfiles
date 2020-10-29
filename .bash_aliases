@@ -1,8 +1,3 @@
-# Some useful aliases.
-alias h='history'
-alias j="jobs -l"
-alias ll="ls -l"
-
 #
 # Csh compatability:
 #
@@ -21,7 +16,11 @@ add-alias ()
    alias $name
 }
 
-alias ..="cd .."
-alias please="sudo "
-# Print each PATH entry on a separate line
+alias ..='cd ..'
+# Print each PATH entry on a separate line.
 alias path='echo -e ${PATH//:/\\\n}'
+# A much more wholesome UNIX experience.
+# https://twitter.com/ctrlshifti/status/1160812366293901314
+alias please='sudo'
+# Start web server from current dir. Port optional: `start-web-server 1111`.
+alias start-web-server='python3 -m http.server'
