@@ -33,24 +33,26 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'elixir-editors/vim-elixir'
   Plug 'fatih/vim-go'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'ledger/vim-ledger'
   Plug 'mxw/vim-jsx'
   Plug 'othree/html5.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
-  Plug 'rust-lang/rust.vim'
+  " Plug 'rust-lang/rust.vim'
   Plug 'slim-template/vim-slim'
-  " Plug 'tikhomirov/vim-glsl', {'for': ['glsl', 'vert', 'lua']}
   Plug 'tpope/vim-git'
   Plug 'HerringtonDarkholme/yats.vim'
   " Plug 'peitalin/vim-jsx-typescript'
   " Plug 'leafgarland/typescript-vim'
-  Plug 'lervag/vimtex'
+  " Plug 'lervag/vimtex'
+  Plug 'https://tildegit.org/sloum/gemini-vim-syntax.git', {'for': ['gemini', 'gmi']}
 
   " Coloschemes
-  Plug 'morhetz/gruvbox'
-  Plug 'vim-scripts/wombat'
-  Plug 'dracula/vim', {'as': 'dracula'}
+  " Plug 'dracula/vim', {'as': 'dracula'}
+  " Plug 'morhetz/gruvbox'
   Plug 'srcery-colors/srcery-vim'
+  " Plug 'vim-scripts/wombat'
+  " Plug 'https://git.sr.ht/~leon_plickat/paige'
 
 call plug#end()
 
@@ -93,7 +95,7 @@ set undofile
 set formatoptions+=1
 
 " 14 Tabs and indenting
-" I give up. The tab is dead, long live the space.
+" I give up. Tab is dead, long live space.
 set shiftwidth=4
 set smarttab
 set softtabstop=-1
