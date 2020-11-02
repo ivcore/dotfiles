@@ -1,0 +1,5 @@
+#!/bin/sh
+# Print date in UTC timestamp YYYYMMDDHHMMSS.
+# Used, for example, in Ruby on Rails' Migrations.
+
+date +%Y%m%d%H%M%S "$@"
