@@ -34,6 +34,10 @@ set history_file = \
 set history = 256
 set save_history = $history
 
+# Automatically poll subscribed mailboxes for new mail.
+#
+set imap_check_subscribed
+
 # Always put a quoted copy of the whole message in a reply text for me to chop
 # up and respond to in Vim--no need to prompt me (the default does that).
 #
