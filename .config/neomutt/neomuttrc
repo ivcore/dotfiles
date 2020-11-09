@@ -93,6 +93,25 @@ set quote_regex = '^(>[ \t]*)+'
 #
 unset recall
 
+# Indent mailboxes in the sidebar.
+#
+set sidebar_folder_indent
+
+# Calculate statistics of a mailbox (unread, flagged, total message counts).
+# Set this option to use %S, %N, and %F in `sidebar_format`.
+#
+set mail_check_stats
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%?S?%S?'
+
+# Shorten the mailboxes' names relative to the previous name.
+#
+set sidebar_short_path
+
+# Show the sidebar and set its' width.
+#
+set sidebar_visible
+set sidebar_width = 20
+
 # Don't delay on switching or altering mailboxes so that I see the messages;
 # just do it straight away.
 #
