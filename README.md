@@ -1,7 +1,6 @@
-# dotfiles
-These are my personal dotfiles with a little (and hopefully soon-to-be enhaced) script (`make.sh`) that generates a symlink to your `~` folder.
+# dotfiles (stow branch)
+These are my personal dotfiles with a little script (`make.sh`) that uses `stow` to generate a symlink to your `~` folder. Imma try to create an alternate script that doesn't require `stow` to work... maybe.
 
 ## to-do
-- [ ] Enhace the `make.sh` script (current one doesn't produce symlink for the `nano.d` directory)
 - [ ] Add config files for `vim`
 - [ ] Install instructions
