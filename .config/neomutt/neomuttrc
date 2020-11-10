@@ -15,6 +15,10 @@ set beep_new
 #
 unset confirmappend
 
+# Show headers in editor when composing.
+#
+set edit_headers
+
 # Switch to a subject format for forwarded messages that's more familiar to
 # most mail users.
 #
@@ -61,6 +65,10 @@ unset markers
 # in mbox format everywhere if I leave it out of muttrc.d/*.rc.
 #
 set mbox_type = Maildir
+
+# Scroll in menus.
+#
+set menu_scroll
 
 # Show a few messages of the index when in pager mode to give a little context
 # around the message.  I should have been doing this years ago.  Oh well.
