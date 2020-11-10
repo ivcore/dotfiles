@@ -19,6 +19,8 @@
 	ctags = !.git/hooks/ctags
 	# Push to all remotes (p.e. git pushall master)
 	pushall = !git remote | xargs -L1 -I R git push R
+	# Quick grep for pending things
+	todo = grep -e TODO -e FIXME
 [color "branch"]
 	current = green bold
 	local = green
@@ -48,13 +50,9 @@
 	ff = only
 # Rewrites of repo paths
 [url "git@github.com:"]
-	insteadOf = "gh:"
 	insteadOf = "git://github.com"
-	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
-[url "git://github.com/"]
-	insteadOf = "github:"
 [user]
 	name = "Ivan Gonzalez Polanco"
 	email = "ivan14polanco@gmail.com"
