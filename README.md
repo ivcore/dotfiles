@@ -11,7 +11,7 @@ Assume for a moment you want to configure a program (e.g. change the default
 background color of your terminal emulator). It's certainly doable... but
 where are those changes saved?
 
-In UNIX and its derivatives [everything is a file], and naturally, when you
+In UNIX and its derivatives [everything is a file][], and naturally, when you
 configure a program, that config is saved in a file, which is located in the
 your home directory (`$HOME`, aka `~`, aka `/home/<your username>/`).
 
@@ -24,7 +24,7 @@ sight sounds like a good idea.
 In UNIX-like OSs, files whose name start with a dot (`.`) are hidden by
 default. This behavior wasn't intended, it a happy accident from the
 programmers of the original UNIX, and was subsequently inherited by UNIX
-derivatives. Rob Pike wrote on the [origin of dot file names].
+derivatives. Rob Pike wrote on the [origin of dot file names][].
 
 [origin of dot file names]: http://xahlee.info/UnixResource_dir/writ/unix_origin_of_dot_filename.html
 
@@ -40,7 +40,7 @@ lived in hidden files and directories directly under `$HOME`, like
 you could end up with a lot of hidden files in your home directory.
 
 Then someone came with a brilliant idea: _Why don't we standardize user
-directories?_ And that's how the [XDG Base Directory Specification] was born.
+directories?_ And that's how the [XDG Base Directory Specification][] was born.
 
 [XDG Base Directory Specification]: https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
@@ -62,6 +62,6 @@ cd .dotfiles
 
 ## License
 
-This work is under the UNLICENSE - see the [UNLICENSE] file for details.
+This work is under the UNLICENSE - see the [UNLICENSE][] file for details.
 
 [UNLICENSE]: UNLICENSE
