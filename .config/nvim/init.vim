@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'cespare/vim-toml'
   Plug 'elixir-editors/vim-elixir'
   Plug 'fatih/vim-go'
-  Plug 'kchmck/vim-coffee-script'
+  " Plug 'kchmck/vim-coffee-script'
   Plug 'ledger/vim-ledger'
   Plug 'mxw/vim-jsx'
   Plug 'othree/html5.vim'
@@ -49,6 +49,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Coloschemes
   " Plug 'dracula/vim', {'as': 'dracula'}
+  " Plug 'kkga/vim-envy'
   " Plug 'morhetz/gruvbox'
   Plug 'srcery-colors/srcery-vim'
   " Plug 'vim-scripts/wombat'
@@ -130,8 +131,9 @@ filetype plugin indent on
 " On save, remove trailing whitespace.
 " autocmd BufWritePre * :%s/\s\+$//e
 
+" Taken from /usr/share/vim/vim*/vimrc_example.vim
 " Uncomment the following to have Vim jump to the last position when
-" reopening a file (taken from /usr/share/vim/vim*/vimrc_example.vim)
+" reopening a file
 autocmd BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") |
   \   exe "normal! g'\"" |
