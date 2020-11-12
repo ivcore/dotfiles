@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Syntax for various languages
   Plug 'StanAngeloff/php.vim'
   Plug 'cespare/vim-toml'
+  Plug 'dag/vim-fish'
   Plug 'elixir-editors/vim-elixir'
   Plug 'fatih/vim-go'
   " Plug 'kchmck/vim-coffee-script'

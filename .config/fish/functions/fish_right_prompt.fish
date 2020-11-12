@@ -17,5 +17,5 @@ function fish_right_prompt --description "Write out the right prompt"
             set color_cwd $fish_color_cwd
     end
 
-    echo -n -s (set_color $color_cwd) (prompt_pwd) (__fish_vcs_prompt) (set_color normal)
+    echo -n -s (set_color $color_cwd) (prompt_pwd) (set_color normal) (fish_git_prompt)
 end
