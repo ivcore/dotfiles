@@ -132,14 +132,6 @@ filetype plugin indent on
 " On save, remove trailing whitespace.
 " autocmd BufWritePre * :%s/\s\+$//e
 
-" Taken from /usr/share/vim/vim*/vimrc_example.vim
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-autocmd BufReadPost *
-  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-  \   exe "normal! g'\"" |
-  \ endif
-
 " ---------------------------------------------------------------------
 " mappings
 " ---------------------------------------------------------------------
