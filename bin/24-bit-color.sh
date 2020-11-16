@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-
-# This file was originally taken from iterm2
-# https://github.com/gnachman/iTerm2/blob/master/tests/24-bit-color.sh
-
-# This file echoes a bunch of 24-bit color codes to the terminal to
+# Echoes a bunch of 24-bit color codes to the terminal to
 # demonstrate its functionality.
+#
 # The foreground escape sequence is ^[38;2;<r>;<g>;<b>m
 # The background escape sequence is ^[48;2;<r>;<g>;<b>m
 # <r> <g> <b> range from 0 to 255 inclusive.
-# The escape sequence ^[0m returns output to default
+# The escape sequence ^[0m returns output to default.
+#
+# This file was originally taken from iterm2:
+# https://github.com/gnachman/iTerm2/blob/master/tests/24-bit-color.sh
 
 setBackgroundColor()
 {

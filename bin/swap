@@ -1,6 +1,6 @@
 #!/bin/sh
+# Swap two filenames around, if they exist.
 
-# Swap 2 filenames around, if they exist
 swap() {
   TMPFILE=tmp.$$
 

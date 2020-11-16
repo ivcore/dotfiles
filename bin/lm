@@ -1,5 +1,6 @@
 #!/bin/sh
-# plan9 style `apropos` or `man -k`
+# plan9 style `apropos` or `man -k`.
+#
 # Source: https://woozle.org/papers/plan9.html
 
 apropos -l "$@" | sed 's/\(.*\) (\(.*\)) * - /man \2 \1 # /'

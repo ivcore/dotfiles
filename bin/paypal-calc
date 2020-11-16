@@ -1,6 +1,6 @@
 #!/bin/sh
 # Calculate fees when sending money through Paypal.
-
+#
 # When sending money through PayPal, the amount sent get deducted a commission:
 # a percentage of the amount you're sending plus a flat fee.
 #

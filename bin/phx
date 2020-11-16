@@ -1,5 +1,6 @@
 #!/bin/sh
-# Rails-style command for Phoenix
+# Rails-style command for Phoenix.
+#
 # Based on https://emmanuelhayford.com/multi-worded-aliases/
 
 case "$@" in
