@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+# Calculate fees when sending money through Paypal.
+
+from argparse import ArgumentParser
+
+# When we send money through PayPal, we're deducted a commision, so the
+# receiver receives less money than what we sent. The amount received can be
+# calculated through:
+#
+# f(x, y, z) = x - x*y/100 - z
+# Where:
+# x: the amount to be sent
+# y: fee rate
+# z: flat fee
+dest = lambda source, rate, flat: source - source*rate/100 - flat
+
+# This makes it bothersome to calculate how much money we have to send when we
+# want to make a payment of, e.g $100. With a little algebraic manipulation, we
+# reverse the function, which will tell us how much money we have to send, so
+# the person receives the amount we want:
+#
+# g(x, y, z) = (x + z)*100/(100 - y)
+# Where:
+# x: the amount to be *received*
+# y: fee rate
+# z: flat fee
+source = lambda dest, rate, flat: (dest + flat)*100/(100 - rate)
+
+# Finally, we can calculate the commission PayPal takes through the fee rate.
+percent = lambda source, rate: source*rate/100
+
+def out(source, dest, flat, percent):
+    return (
+        f"{'Send':11s} {source:9.2f}\n"
+        f"{'Receive':11s} {dest:9.2f}\n"
+        f"{'Flat Fee':11s} {flat:9.2f}\n"
+        f"{'Percent Fee':11s} {percent:9.2f}\n"
+        f"{'Total Fee':11s} {percent + flat:9.2f}"
+    )
+
+if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument("dest", help="Amount to be received", type=float)
+    parser.add_argument("rate", nargs='?', help="Fee rate", type=float, default=5.4)
+    parser.add_argument("flat", nargs='?', help="Flat fee", type=float, default=0.3)
+    args = parser.parse_args()
+
+    d = args.dest
+    r = args.rate
+    f = args.flat
+
+    # How much do I have to send to receive X?
+    s = source(d, r, f)
+    p = percent(s, r)
+
+    print(out(s, d, f, p))
+    print()
+
+    # If I send X, how much will be received?
+    s = args.dest
+    d = dest(s, r, f)
+    p = percent(s, r)
+    print(out(s, d, f, p))
