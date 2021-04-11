@@ -25,7 +25,7 @@ set -g fish_color_autosuggestion  $XGRAY6
 set -g fish_color_cancel          --reverse
 set -g fish_color_command         --bold
 set -g fish_color_comment         red
-set -g fish_color_cwd             green
+set -g fish_color_cwd             cyan
 set -g fish_color_cwd_root        red
 set -g fish_color_end             brmagenta
 set -g fish_color_error           brred
@@ -35,7 +35,7 @@ set -g fish_color_host_remote     yellow
 set -g fish_color_match           --background=brblue
 set -g fish_color_normal          normal
 set -g fish_color_operator        bryellow
-set -g fish_color_param           cyan
+set -g fish_color_param           normal
 set -g fish_color_quote           yellow
 set -g fish_color_redirection     brblue
 set -g fish_color_search_match    --background=brblack

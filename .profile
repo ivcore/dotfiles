@@ -36,11 +36,6 @@ if [ -d "$HOME/.yarn/bin" ] ; then
     PATH="$PATH:$HOME/.yarn/bin"
 fi
 
-# The most friendly Python package manager
-if [ -d "$HOME/.poetry/bin" ] ; then
-    PATH="$HOME/.poetry/bin:$PATH"
-fi
-
 # If ~/.shinit exists, set ENV to that
 if [ -f "$HOME"/.shinit ] ; then
     ENV=$HOME/.shinit
