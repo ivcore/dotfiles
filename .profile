@@ -41,3 +41,10 @@ if [ -f "$HOME"/.shinit ] ; then
     ENV=$HOME/.shinit
     export ENV
 fi
+
+# Load all supplementary scripts in ~/.profile.d
+for sh in "$HOME"/.profile.d/*.sh ; do
+    [ -e "$sh" ] || continue
+    . "$sh"
+done
+unset -v sh
