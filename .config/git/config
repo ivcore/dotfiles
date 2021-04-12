@@ -21,8 +21,8 @@
 	pushall = !git remote | xargs -L1 -I R git push R
 	# Quick grep for pending things
 	todo = grep -e TODO -e FIXME
-	# Generate a reverse log of the commits, with ISO dates, and tab separated
-	tsv = log --date=iso --reverse --pretty=tsv
+	# Generate a reverse log of the commits, with UNIX timestamps, tab separated
+	tsv = log --date=unix --reverse --pretty=tsv
 [color "branch"]
 	current = green bold
 	local = green
@@ -44,6 +44,7 @@
 [diff]
 	algorithm = patience
 [init]
+	defaultBranch = master
 	templatedir = "~/.config/git/template"
 [pretty]
 	# Check `man git-log` PRETTY FORMATS to see the placeholders
@@ -59,6 +60,9 @@
 	insteadOf = "git://github.com"
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
+	insteadOf = "gh:"
+[url "git@git.sr.ht:~"]
+	insteadOf = "srht:"
 [user]
 	name = "Ivan Gonzalez Polanco"
 	email = "ivan14polanco@gmail.com"

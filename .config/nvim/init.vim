@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'cespare/vim-toml'
   Plug 'dag/vim-fish'
   Plug 'elixir-editors/vim-elixir'
-  Plug 'fatih/vim-go'
+  " Plug 'fatih/vim-go'
   " Plug 'kchmck/vim-coffee-script'
   Plug 'ledger/vim-ledger'
   Plug 'mxw/vim-jsx'
@@ -47,6 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'leafgarland/typescript-vim'
   " Plug 'lervag/vimtex'
   Plug 'https://tildegit.org/sloum/gemini-vim-syntax.git', {'for': ['gemini', 'gmi']}
+  Plug 'https://git.sr.ht/~sircmpwn/hare.vim'
 
   " Coloschemes
   " Plug 'dracula/vim', {'as': 'dracula'}
@@ -55,6 +56,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'srcery-colors/srcery-vim'
   " Plug 'vim-scripts/wombat'
   " Plug 'https://git.sr.ht/~leon_plickat/paige'
+  " Plug 'evprkr/galaxian-vim'
 
 call plug#end()
 

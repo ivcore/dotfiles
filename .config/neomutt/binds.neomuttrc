@@ -159,7 +159,7 @@ bind pager                      \031    previous-line
 bind pager                      \005    next-line
 
 # Since we unassigned g, who do we reply to groups? I got you covered mate:
-bind index,pager                R       group-reply
+bind index,pager                R       group-chat-reply
 
 # Deleting stuff, vim style
 bind index,pager                d       noop
