@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'fatih/vim-go'
   " Plug 'kchmck/vim-coffee-script'
   Plug 'ledger/vim-ledger'
-  Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'othree/html5.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
